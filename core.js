@@ -25,7 +25,7 @@ function receive() {
                         calc14();
                     }
                 } else {
-                    document.getElementById('output').innerHTML = "暂不支持！"
+                    calc8();
                 }
             } else {
                 calc6();
