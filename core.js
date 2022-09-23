@@ -8,45 +8,57 @@ var length = 0;
 function receive() {
     userinput = document.getElementById('input').value;
     length = userinput.length;
-    lineno = Math.trunc(userinput / 100000 % 10) * 10 + Math.trunc(userinput / 10000 % 10);
+    //lineno = Math.trunc(userinput / 100000 % 10) * 10 + Math.trunc(userinput / 10000 % 10);
+    lineno = userinput.substr(0,2)
     if (length != 0){
         if (length < 6) {
             document.getElementById('output').innerHTML = "暂不支持！"
         } else {
-            if (lineno != 6) {
-                if (lineno != 8) {
-                    if (lineno != 14) {
-                        if (lineno != 16) {
-                            calccommon();
+            if (length != 6){
+                if (length != 7){
+                    document.getElementById('output').innerHTML = "暂不支持！"
+                }else{
+
+                }
+            }else{
+                if (lineno != 6) {
+                    if (lineno != 8) {
+                        if (lineno != 14) {
+                            if (lineno != 16) {
+                                calccommon();
+                            } else {
+                                calc16();
+                            }
                         } else {
-                            document.getElementById('output').innerHTML = "暂不支持！"
+                            calc14();
                         }
                     } else {
-                        calc14();
+                        calc8();
                     }
                 } else {
-                    calc8();
+                    calc6();
                 }
-            } else {
-                calc6();
-            }
+            };
         }
     }else{document.getElementById('output').innerHTML = "额，你输入车体号了吗？(⊙﹏⊙)"}
 }
 function calccommon() {
-    carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    carno = userinput.substr(2,3)
     trainno = Math.ceil(carno / 6);
     final = lineno * 1000 + trainno
     document.getElementById('output').innerHTML = lineno + ":" + final.toString().padStart(5, "0");
 }
 function calc14() {
-    carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    carno = userinput.substr(2,3)
     trainno = Math.ceil(carno / 8);
     final = lineno * 1000 + trainno;
     document.getElementById('output').innerHTML = "14:" + final.toString().padStart(5, "0");
 }
 function calc6() {
-    carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    carno = userinput.substr(2,3)
     if (carno <= 12 && carno >= 1){
         trainno = Math.ceil(carno / 4);
     }else{
@@ -80,7 +92,8 @@ function calc6() {
     document.getElementById('output').innerHTML = "6:" + final.toString().padStart(5, "0");
 }
 function calc8() {
-    carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    carno = userinput.substr(2,3)
     if (carno <= 168 && carno >= 1){
         trainno = Math.ceil(carno / 6);
     }else{
@@ -92,4 +105,19 @@ function calc8() {
     }
     final = lineno * 1000 + trainno;
     document.getElementById('output').innerHTML = "8:" + final.toString().padStart(5, "0");
+}
+function calc16() {
+    //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
+    carno = userinput.substr(2,3)
+    if (carno <= 138 && carno >= 1){
+        trainno = Math.ceil(carno / 3);
+    }else{
+        if (carno <= 228 && carno >= 139){
+            trainno = Math.ceil(carno / 6 + 23);
+        }else{
+
+        }
+    }
+    final = lineno * 1000 + trainno;
+    document.getElementById('output').innerHTML = "16:" + final.toString().padStart(5, "0");
 }
