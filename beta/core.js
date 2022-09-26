@@ -1,6 +1,5 @@
 var userinput = 0;
 var lineno = 0;
-var linenot01 = 0;
 var carno = 0;
 var year = 0;
 var trainno = 0;
@@ -126,4 +125,7 @@ function calc16() {
 function calct01() {
     lineno = userinput.substr(0,3);
     carno = userinput.substr(3,3);
+    trainno = Math.ceil(carno / 4);
+    final = lineno + trainno.toString().padStart(2, "0");
+    document.getElementById('output').innerHTML = "浦江线:" + final;
 }

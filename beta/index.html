@@ -10,7 +10,7 @@
 
     <!-- MDUI CSS -->
     <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
-    <title>RE:地铁计算器预览</title>
+    <title>Re:地铁计算器预览</title>
 </head>
 
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-theme-layout-auto">
@@ -19,8 +19,8 @@
             <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer'}">
                 <i class="mdui-icon material-icons">menu</i>
             </a>
-            <a href="javascript:;" class="mdui-typo-headline">RE:地铁计算器预览</a>
-            <a href="javascript:;" class="mdui-typo-title">0.15 Beta 1</a>
+            <a href="javascript:;" class="mdui-typo-headline">Re:地铁计算器预览</a>
+            <a href="javascript:;" class="mdui-typo-title">0.15 Beta 2</a>
             <div class="mdui-toolbar-spacer"></div>
             <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
                 <i class="mdui-icon material-icons">refresh</i>
@@ -39,10 +39,10 @@
         </div>
     </div>
     <div class="mdui-container mdui-typo">
-        注意：目前不支持1，2，3，5号线，浦江线计算
+        注意：目前不支持1，2，3，5号线计算
         <div class="mdui-textfield mdui-textfield-floating-label">
             <label class="mdui-textfield-label">输入车体号</label>
-            <input class="mdui-textfield-input" type="text" id="input" required />
+            <input class="mdui-textfield-input" type="text" id="input" onkeydown="if(event.keyCode==13){receive()}" required />
             <div class="mdui-textfield-error">车体号不能为空</div>
         </div>
         <button class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent"
@@ -50,8 +50,8 @@
         <div class="mdui-divider"></div>
         <div id="output"></div>
         <div class="mdui-dialog" id="Dialog">
-            <div class="mdui-dialog-title">关于“RE:地铁计算器预览”</div>
-            <div class="mdui-dialog-content">Ver:0.15 Beta 1</div>
+            <div class="mdui-dialog-title">关于“Re:地铁计算器预览”</div>
+            <div class="mdui-dialog-content">Ver:0.15 Beta 2</div>
             <div class="mdui-dialog-actions">
                 <button class="mdui-btn mdui-ripple" mdui-dialog-close>好</button>
             </div>
