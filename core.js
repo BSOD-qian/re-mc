@@ -18,7 +18,7 @@ function receive() {
                 if (length != 7){
                     document.getElementById('output').innerHTML = "暂不支持！"
                 }else{
-
+                    calct01();
                 }
             }else{
                 if (lineno != 6) {
@@ -120,4 +120,12 @@ function calc16() {
     }
     final = lineno * 1000 + trainno;
     document.getElementById('output').innerHTML = "16:" + final.toString().padStart(5, "0");
+}
+
+function calct01() {
+    lineno = userinput.substr(0,3);
+    carno = userinput.substr(3,3);
+    trainno = Math.ceil(carno / 4);
+    final = lineno + trainno.toString().padStart(2, "0");
+    document.getElementById('output').innerHTML = "浦江线:" + final;
 }
