@@ -1,0 +1,53 @@
+html {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.blur {
+    border-radius: 2px;
+    padding: 4px 0px 4px 16px;
+    box-shadow: none;
+    margin: 0px;
+}
+
+.past {
+    border-left: 16px solid #616161;
+    color: #616161;
+}
+
+.now {
+    border-left: 16px solid #ff0000;
+}
+
+.next {
+    animation: 1.5s blink linear infinite alternate;
+}
+
+.future {
+    border-left: 16px solid #00be10;
+}
+
+@keyframes blink {
+    0% {
+        border-left: 16px solid #616161;
+        background-color: #ffd900;
+    }
+
+    100% {
+        border-left: 16px solid #ffd900;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .mdui-drawer {
+        background-color: #424242;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .mdui-drawer {
+        background-color: #FFF;
+    }
+}
