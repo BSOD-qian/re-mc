@@ -21,7 +21,7 @@
                 <i class="mdui-icon material-icons">menu</i>
             </a>
             <a href="javascript:;" class="mdui-typo-headline">Re:地铁计算器</a>
-            <a href="javascript:;" class="mdui-typo-title">0.15.1</a>
+            <a href="javascript:;" class="mdui-typo-title">0.16</a>
             <div class="mdui-toolbar-spacer"></div>
             <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
                 <i class="mdui-icon material-icons">refresh</i>
@@ -41,24 +41,24 @@
     </div>
     <div class="mdui-container mdui-typo">
         <div class="blur">
-            注意：目前不支持1，2，3，5号线计算
+            注意：目前不支持1，2，3号线计算
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">输入车体号</label>
                 <input class="mdui-textfield-input" type="text" id="input" onkeydown="if(event.keyCode==13){receive()}" required />
                 <div class="mdui-textfield-error">车体号不能为空</div>
             </div>
             <label class="mdui-checkbox">
-                <input type="checkbox" disabled/>
+                <input type="checkbox" id="05C01"/>
                 <i class="mdui-checkbox-icon"></i>
-                <abbr title="功能未完成。05C01型列车大修后车体号不遵循一般规律，且大修前部分车体号与03A01型列车重号、大修后部分车体号与05C02型列车重号">是05C01（番茄炒蛋）型列车</abbr>
+                <span mdui-tooltip="{content: '05C01型列车大修后车体号不遵循一般规律，且大修前部分车体号与03A01型列车重号、大修后部分车体号与05C02型列车重号', delay: 500}">是05C01（番茄炒蛋）型列车</span>
               </label>
             <button class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent"
-                onclick="receive();">计算</button>
+                onclick="wuc();">计算</button>
         </div>
         <div class="blur"><span id="output">在您开始计算后，计算结果将显示于此</span><br/>2022 @蓝屏钙BSOD</div>
         <div class="mdui-dialog" id="Dialog">
             <div class="mdui-dialog-title">关于“Re:地铁计算器”</div>
-            <div class="mdui-dialog-content">Ver:0.15.1</div>
+            <div class="mdui-dialog-content">Ver:0.16</div>
             <div class="mdui-dialog-actions">
                 <button class="mdui-btn mdui-ripple" mdui-dialog-close>好</button>
             </div>
