@@ -1,3 +1,7 @@
+html {
+    filter: grayscale(1);
+}
+
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,6 +11,7 @@ body {
 
 .blur {
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border-radius: 2px;
     padding: 16px;
 }
