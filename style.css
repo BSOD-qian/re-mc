@@ -1,12 +1,22 @@
-html {
-    filter: grayscale(1);
-}
-
 body {
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100% 100%;
     background-attachment: fixed;
+}
+
+#appbar{
+    display: none;
+}
+
+#loadingdiv{
+	position : absolute;
+    z-index: 10000;
+	width : 100%;
+	height : 100%;
+    display: flex;
+    justify-content: center;/*水平轴*/
+    align-items: center;/*垂直轴*/
 }
 
 .blur {
@@ -20,6 +30,9 @@ body {
     .mdui-drawer {
         background-color: #424242;
     }
+    #loadingdiv {
+        background-color: #424242;
+    }
     .blur {
         background-color: rgba(0, 0, 0, 0);
         box-shadow: none;
@@ -31,6 +44,9 @@ body {
     .mdui-drawer {
         background-color: #FFF;
     }
+    #loadingdiv {
+        background-color: #FFF;
+    }
     .blur {
         background-color: rgba(255, 255, 255, 0.5);
         box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
@@ -39,4 +55,8 @@ body {
     body {
         background: url('https://api.oneneko.com/v1/bing_today');
     }
+}
+
+.radius{
+    border-radius: 20px;
 }
