@@ -60,7 +60,13 @@ function calccommon() {
     carno = userinput.substr(2, 3)
     trainno = Math.ceil(carno / 6);
     final = lineno * 1000 + trainno
-    document.getElementById('output').innerHTML = lineno + ":" + final.toString().padStart(5, "0");
+    if (final <= 4049 && final >= 4037){
+        final = final - 1000;
+        lineno = lineno - 1;
+        document.getElementById('output').innerHTML = parseFloat(lineno) + ":" + final.toString().padStart(5, "0") + "（借调）";
+    }else{
+        document.getElementById('output').innerHTML = parseFloat(lineno) + ":" + final.toString().padStart(5, "0");
+    }
 }
 function calc14() {
     //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
