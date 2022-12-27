@@ -1,6 +1,7 @@
 var userinput = 0;
-var userinput5 = 0;
+var userinputn = 0;
 var lineno = 0;
+var year = 0
 var carno = 0;
 var year = 0;
 var trainno = 0;
@@ -20,8 +21,13 @@ function receive() {
     //lineno = Math.trunc(userinput / 100000 % 10) * 10 + Math.trunc(userinput / 10000 % 10);
     lineno = userinput.substr(0, 2)
     if (length != 0) {
-        if (length < 6) {
-            document.getElementById('output').innerHTML = "暂不支持！"
+        if (length == 5) {
+            year = userinput.substr(0, 2);
+            if (year == 02 || year == 03 || year == 04) {
+                calc3();
+            }else{
+                document.getElementById('output').innerHTML = "暂不支持！"
+            }
         } else {
             if (length != 6) {
                 if (length != 7) {
@@ -158,7 +164,7 @@ function calct01() {
 
 function m5() {
     userinput = document.getElementById('input').value;
-    userinput5 = Number(userinput);
+    userinputn = Number(userinput);
     trainno5 = new Array();
     trainno5[2011] = "5:05001"
     trainno5[2022] = "5:05001"
@@ -296,5 +302,26 @@ function m5() {
     trainno5[54222] = "5:05017"
     trainno5[54232] = "5:05017"
     trainno5[54241] = "5:05017"
-    document.getElementById('output').innerHTML = trainno5[userinput5];
+    document.getElementById('output').innerHTML = trainno5[userinputn];
+}
+
+function calc3() {
+    carno = userinput.substr(2, 2);
+    if(year == 02){
+        trainno = Math.ceil(carno / 6)
+        final = trainno + 3000
+        document.getElementById('output').innerHTML = "3:" + final.toString().padStart(5, "0");
+    }else{
+        if(year == 03){
+            trainno = Math.ceil(carno / 6 + 5)
+            final = trainno + 3000
+            document.getElementById('output').innerHTML = "3:" + final.toString().padStart(5, "0");
+        }else{
+            if(year == 04){
+                trainno = Math.ceil(carno / 21)
+                final = trainno + 3000
+                document.getElementById('output').innerHTML = "3:" + final.toString().padStart(5, "0");
+            }
+        }
+    }
 }
