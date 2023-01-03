@@ -8,7 +8,7 @@ function vercheck(){
             data = JSON.parse(xhr.responseText);
             version = data.version;
             date = data.date;
-            if (version !== "0.17"){
+            if (version !== "0.18"){
                 mdui.snackbar({
                     message: '检测到更新，版本' + version + '，推送于' + date,
                     buttonText: '刷新',
