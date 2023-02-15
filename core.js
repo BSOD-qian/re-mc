@@ -835,8 +835,6 @@ function msp() {
     trainnoyear[14323] = "1:01037（Tc车曾在2号线，车号02024）"
     trainnoyear[14333] = "1:01037（Tc车曾在2号线，车号02024）"
     trainnoyear[14342] = "1:01037（Tc车曾在2号线，车号02024）"
-    //09A01
-    trainnoyear[11751] = "9:09001（曾在1号线运营，车号01030）"
     if (trainnoyear[userinputn] == undefined) {
         document.getElementById('output').innerHTML = '车体号有误';
     } else {

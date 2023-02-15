@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh-cmn-Hans">
 
@@ -9,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- MDUI CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="./mdui/css/mdui.css" />
     <title>更新日志|Re:地铁计算器</title>
 </head>
 
@@ -40,17 +41,50 @@
         <div class="mdui-panel" mdui-panel>
             <div class="mdui-panel-item mdui-panel-item-open">
                 <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.0</div>
+                    <div class="mdui-panel-item-summary">2023.2.15</div>
+                    <div class="mdui-panel-item-summary">当前版本</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>爱发电链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>友情链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>关于窗口
+                </div>
+            </div>
+            <div class="mdui-panel-item mdui-panel-item-open">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.0 RC 2</div>
+                    <div class="mdui-panel-item-summary">2023.2.13</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">追加</span></span>友情链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>关于窗口
+                </div>
+            </div>
+            <div class="mdui-panel-item mdui-panel-item-open">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.0 RC 1</div>
+                    <div class="mdui-panel-item-summary">2023.2.10</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>友情链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>关于窗口
+                </div>
+            </div>
+            <div class="mdui-panel-item">
+                <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title">0.19</div>
                     <div class="mdui-panel-item-summary">2023.2.10</div>
-                    <div class="mdui-panel-item-summary">当前版本</div>
                     <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                 </div>
                 <div class="mdui-panel-item-body">
                     <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>1号线支持
                 </div>
             </div>
-        <div class="mdui-panel" mdui-panel>
-            <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title">0.19 Beta 5</div>
                     <div class="mdui-panel-item-summary">2023.2.9</div>
@@ -62,7 +96,7 @@
                     <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>版本号现在可以统一更改
                 </div>
             </div>
-            <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title">0.19 Beta 4a</div>
                     <div class="mdui-panel-item-summary">2023.2.7</div>
@@ -394,12 +428,14 @@
         <div class="mdui-list">
             <a href="./index.html" class="mdui-list-item mdui-ripple">主页</a>
             <a href="./changelog.html" class="mdui-list-item mdui-ripple mdui-list-item-active">更新日志</a>
+            <a href="javascript:donate();" class="mdui-list-item mdui-ripple">发电支持</a>
         </div>
     </div>
 
     <!-- MDUI JavaScript -->
     <script src="./core.js"></script>
-    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="./mdui/js/mdui.js"></script>
+    <script src="./donate.js"></script>
 </body>
 
 </html>
