@@ -19,9 +19,10 @@
     </noscript>
 </head>
 
-<body class="mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-theme-layout-auto">
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-light-blue" id="body">
     <div id="loadingdiv">
         <div class="mdui-spinner"></div>
+
     </div>
     <div class="mdui-appbar mdui-appbar-fixed" id="appbar">
         <div class="mdui-toolbar mdui-color-theme">
@@ -32,6 +33,10 @@
             <a href="javascript:;" class="mdui-typo-title mdui-ripple" mdui-dialog="{target: '#Dialog'}"
                 id="appbar_version"></a>
             <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:change();" class="mdui-btn mdui-btn-icon mdui-ripple" id="brightness_control_btn"
+                mdui-tooltip="{content: '色彩模式切换'}">
+                <i class="mdui-icon material-icons" id="brightness_control">brightness_auto</i>
+            </a>
             <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple">
                 <i class="mdui-icon material-icons">refresh</i>
             </a>
@@ -46,13 +51,16 @@
                     <a href="https://kook.top/GL1gkO" class="mdui-ripple">访问KOOK频道</a>
                 </li>
                 <li class="mdui-menu-item">
+                    <a href="https://tieba.baidu.com/p/8267285447" class="mdui-ripple">访问贴吧原帖</a>
+                </li>
+                <li class="mdui-menu-item">
                     <a href="https://github.com/BSOD-qian/re-mc" class="mdui-ripple">访问Github</a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="mdui-container mdui-typo">
-        <div class="card">
+        <div class="card" id="card1">
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">输入车体号</label>
                 <input class="mdui-textfield-input" type="text" id="input" onkeydown="if(event.keyCode==13){receive()}"
@@ -68,15 +76,18 @@
             <button class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent"
                 onclick="wuc();">计算</button>
         </div>
-        <div class="card"><span id="output">在您开始计算后，计算结果将显示于此</span><br />2023 @蓝屏钙BSOD</div>
+        <div class="card" id="card2"><span id="output">在您开始计算后，计算结果将显示于此</span></div>
         <div class="mdui-dialog" id="Dialog">
             <div class="mdui-dialog-title">关于“Re:地铁计算器”</div>
             <div class="mdui-dialog-content">
-                <img src="./favicon.png" style="height: 6em;"/>
+                <img src="./favicon.png" style="height: 6em;" />
                 <h1>版本信息</h1>
-                Ver <span id="dialog_version"></span><br />使用<a href="#"mdui-dialog="{target: '#license'}">GNU General Public License v3.0</a>授权<span id="expire"></span>
+                Ver <span id="dialog_version"></span><br />使用<a href="#" mdui-dialog="{target: '#license'}">GNU General
+                    Public License v3.0</a>授权<br />2023 @蓝屏钙BSOD<span id="expire"></span>
                 <h1>鸣谢</h1>
-                使用<a href="https://www.mdui.org" target="_blank">MDUI 1.0.2</a>框架<br />使用魔都轨交信息组的编组表<br />使用<a href="https://oneneko.com/" target="_blank">oneNeko</a>提供的bing壁纸api<br /><a href="./friendly_link.html" target="_blank">友情链接</a>
+                使用<a href="https://www.mdui.org" target="_blank">MDUI 1.0.2</a>框架<br />使用魔都轨交信息组的编组表<br />使用<a
+                    href="https://oneneko.com/" target="_blank">oneNeko</a>提供的bing壁纸api<br /><a
+                    href="./friendly_link.html" target="_blank">友情链接</a>
             </div>
             <div class="mdui-dialog-actions">
                 <button class="mdui-btn mdui-ripple" mdui-dialog-close>好</button>
@@ -91,7 +102,7 @@
             </div>
         </div>
     </div>
-    <div class="mdui-drawer mdui-drawer-close blur" id="drawer">
+    <div class="mdui-drawer mdui-drawer-close" id="drawer">
         <div class="mdui-list">
             <a href="./index.html" class="mdui-list-item mdui-ripple mdui-list-item-active">主页</a>
             <a href="./changelog.html" class="mdui-list-item mdui-ripple">更新日志</a>
@@ -104,6 +115,8 @@
     <script src="./mdui/js/mdui.js"></script>
     <script src="./versioncheck.js"></script>
     <script src="./donate.js"></script>
+    <script src="./browser.js"></script>
+    <script src="./brightness.js"></script>
 </body>
 
 </html>

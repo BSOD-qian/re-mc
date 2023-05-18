@@ -1,11 +1,11 @@
 var expire_date = new Date();
-expire_date.setFullYear(2023,2,13)
+expire_date.setFullYear(2023,4,23)
 var today = new Date();
-var current = "1.0 RC 2"
+var current = "1.1 Beta 6"
 document.getElementById('appbar_version').innerHTML = current;
 document.getElementById('dialog_version').innerHTML = current;
 function vercheck() {
-  var url = "https://remc.rth1.one/versiondev.json?" + Math.random();
+  var url = "https://remc.rth1.one/versiondevfast.json?" + Math.random();
   var xhr, data, version, date;
   xhr = new XMLHttpRequest();
   xhr.open("get", url);
@@ -28,7 +28,7 @@ function vercheck() {
   xhr.send();
 };
 function vercheck_pre() {
-    var url = "https://remc.rth1.one/versiondev.json?" + Math.random();
+    var url = "https://remc.rth1.one/versiondevfast.json?" + Math.random();
     var xhr, data, version, date;
     xhr = new XMLHttpRequest();
     xhr.open("get", url);
