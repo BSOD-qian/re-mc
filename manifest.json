@@ -1,9 +1,9 @@
 {
     "name": "Re:地铁计算器",
     "short_name": "Re:地铁计算器",
-    "start_url": ".",
+    "start_url": "./",
     "display": "standalone",
-    "background_color": "#fff",
+    "background_color": "#03af94",
     "description": "快速查询列车车号",
     "icons": [{
       "src": "./favicon.png",

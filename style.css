@@ -60,15 +60,16 @@ body {
     background-size: 100% 100%;
 }
 
-.body_dark {}
+.body_dark {
+
+}
 
 @media (prefers-color-scheme: dark) {
     .drawer_auto {
         background-color: #424242;
     }
-
     #loadingdiv {
-        background-color: #424242;
+        background-color: #303030;
     }
 
     .card_auto {

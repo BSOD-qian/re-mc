@@ -13,6 +13,7 @@ var length = 0;
 var type = 0;
 var sp = 0;
 var finalnum = 0;
+var carnoerror = 0;
 var url = window.location.href;
 var canshu = url.split("?");
 if (canshu.length == 2) {
@@ -344,20 +345,25 @@ function m5() {
 
 function calc3() {
     carno = userinput.substr(2, 2);
-    if (year == 02) {
-        trainno = Math.ceil(carno / 6)
-        final = trainno + 3000
+    if (carno == 0){
+        carnoerror == 1;
         output_3();
-    } else {
-        if (year == 03) {
-            trainno = Math.ceil(carno / 6 + 5)
+    }else{
+        if (year == 02) {
+            trainno = Math.ceil(carno / 6)
             final = trainno + 3000
             output_3();
         } else {
-            if (year == 04) {
-                trainno = Math.ceil(carno / 6 + 21)
+            if (year == 03) {
+                trainno = Math.ceil(carno / 6 + 5)
                 final = trainno + 3000
                 output_3();
+            } else {
+                if (year == 04) {
+                    trainno = Math.ceil(carno / 6 + 21)
+                    final = trainno + 3000
+                    output_3();
+                }
             }
         }
     }
@@ -989,7 +995,7 @@ function output() {
                                                                                                                                                                                 if (final <= 18050 && final >= 18001) {
                                                                                                                                                                                     type = "18A01 闪电侠"
                                                                                                                                                                                 } else {
-
+                                                                                                                                                                                    carnoerror = 1;
                                                                                                                                                                                 }
                                                                                                                                                                             }
                                                                                                                                                                         }
@@ -1257,13 +1263,18 @@ function output() {
             }
         }
     }
-    document.getElementById('output').innerHTML = "线路：" + parseFloat(lineno) + "号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    if (carnoerror == 0){
+        document.getElementById('output').innerHTML = "线路：" + parseFloat(lineno) + "号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    }else{
+        document.getElementById('output').innerHTML = "车体号有误";
+        carnoerror = 0;
+    }
 }
 function output_3() {
     if (final <= 3028 && final >= 3001) {
         type = "03A01 黄鱼"
     } else {
-
+        carnoerror = 1;
     }
     if (final == 3001) {
         sp = "<br/>特殊性：法国进口列车"
@@ -1300,13 +1311,18 @@ function output_3() {
             }
         }
     }
-    document.getElementById('output').innerHTML = "线路：3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    if (carnoerror == 0){
+        document.getElementById('output').innerHTML = "线路：3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    }else{
+        document.getElementById('output').innerHTML = "车体号有误";
+        carnoerror = 0;
+    }
 }
 function output_t01() {
     if (final == "T0101" || final == "T0102" || final == "T0103" || final == "T0104" || final == "T0105" || final == "T0106" || final == "T0107" || final == "T0108" || final == "T0109" || final == "T0110" || final == "T0111") {
         type = "Bombardier APM 300 小灰灰<del>泰美之子</del>"
     } else {
-
+        carnoerror = 1;
     }
     if (final == "T0101") {
         sp = "<br/>特殊性：首列交付"
@@ -1331,5 +1347,9 @@ function output_t01() {
             }
         }
     }
-    document.getElementById('output').innerHTML = "线路：浦江线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    if (carnoerror == 0){
+        document.getElementById('output').innerHTML = "线路：浦江线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    }else{
+        document.getElementById('output').innerHTML = "车体号有误";
+    }
 }
