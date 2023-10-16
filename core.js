@@ -185,7 +185,7 @@ function calc16() {
         }
     }
     final = lineno * 1000 + trainno;
-    document.getElementById('output').innerHTML = "16:" + final.toString().padStart(5, "0");
+    output();
 }
 
 function calct01() {

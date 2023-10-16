@@ -1,4 +1,4 @@
-var current = "1.1.2"
+var current = "1.1.3"
 document.getElementById('appbar_version').innerHTML = current;
 document.getElementById('dialog_version').innerHTML = current;
 function vercheck() {
