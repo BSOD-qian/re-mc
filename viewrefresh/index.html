@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" class="mdui-theme-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2.0.1/mdui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/mdui@2.0.1/mdui.global.js"></script>
+    <script src="./style.js"></script>
+    <script src="./core.js"></script>
+
+    <title>Re:地铁计算器 - 视觉刷新预览</title>
+</head>
+
+<body>
+    <mdui-top-app-bar>
+        <mdui-button-icon icon="menu"></mdui-button-icon>
+        <mdui-top-app-bar-title>Re:地铁计算器 - 视觉刷新预览</mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="brush" onclick="location.href='../'"></mdui-button-icon>
+        <mdui-button-icon icon="refresh" onclick="location.reload();"></mdui-button-icon>
+        <mdui-button-icon icon="more_vert"></mdui-button-icon>
+    </mdui-top-app-bar>
+
+    <div class="mdui-prose">
+        <mdui-text-field label="输入车体号" maxlength="7" counter id="input" onkeydown="if(event.keyCode==13){wuc()}" helper="车体号应为5位、6位或7位（例：92113、114511、T010011）" helper-on-focus required clearable></mdui-text-field>
+        <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车</mdui-checkbox>
+        <mdui-button onclick="wuc();" full-width end-icon="arrow_forward">计算</mdui-button>
+
+        <div id="output">在您开始计算后，计算结果将显示于此</div>
+    </div>
+</body>
+
+</html>

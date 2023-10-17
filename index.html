@@ -33,6 +33,9 @@
             <a href="javascript:;" class="mdui-typo-title mdui-ripple" mdui-dialog="{target: '#Dialog'}"
                 id="appbar_version"></a>
             <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '视觉刷新预览'}" disabled>
+                <i class="mdui-icon material-icons">brush</i>
+            </a>
             <a href="javascript:change();" class="mdui-btn mdui-btn-icon mdui-ripple" id="brightness_control_btn"
                 mdui-tooltip="{content: '色彩模式切换'}">
                 <i class="mdui-icon material-icons" id="brightness_control">brightness_auto</i>
@@ -63,7 +66,7 @@
         <div class="card" id="card1">
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">输入车体号</label>
-                <input class="mdui-textfield-input" type="text" id="input" onkeydown="if(event.keyCode==13){receive()}"
+                <input class="mdui-textfield-input" type="text" id="input" onkeydown="if(event.keyCode==13){wuc()}"
                     required maxlength="7">
                 <div class="mdui-textfield-error">车体号不能为空</div>
             </div>
