@@ -113,7 +113,7 @@ function calc14() {
     carno = userinput.substr(2, 3)
     trainno = Math.ceil(carno / 8);
     final = lineno * 1000 + trainno;
-    document.getElementById('output').innerHTML = "14:" + final.toString().padStart(5, "0");
+    output();
 }
 function calc5() {
     //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
@@ -1193,7 +1193,11 @@ function output() {
                                                                                                                                                                                                             if (final == 17006) {
                                                                                                                                                                                                                 sp = "<br/>特殊性：车号与车体号为细字体"
                                                                                                                                                                                                             } else {
-                                                                                                                                                                                                                sp = ""
+                                                                                                                                                                                                                if (final == 4006) {
+                                                                                                                                                                                                                    sp = "<br/>特殊性：首列完成LCD与信号改造并上线的04A01型列车"
+                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                    sp = ""
+                                                                                                                                                                                                                }
                                                                                                                                                                                                             }
                                                                                                                                                                                                         }
                                                                                                                                                                                                     }
