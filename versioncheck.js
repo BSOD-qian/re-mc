@@ -1,5 +1,4 @@
-var current = "1.1.5.1"
-document.getElementById('appbar_version').innerHTML = current;
+var current = "1.1.6"
 document.getElementById('dialog_version').innerHTML = current;
 function vercheck() {
     var url = "./version.json?" + Math.random();
@@ -14,11 +13,10 @@ function vercheck() {
             if (version !== current) {
                 mdui.snackbar({
                     message: '检测到更新，版本' + version + '，推送于' + date,
-                    buttonText: '刷新',
-                    onButtonClick: function(){
-                      location.reload();
-                    }
-                  });
+                    action: "刷新",
+                    onActionClick: () => location.reload()
+
+                });
             };
         }
     }

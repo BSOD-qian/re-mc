@@ -1,49 +1,119 @@
-
 <!doctype html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN" class="mdui-theme-auto">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
     <meta name="renderer" content="webkit" />
-    <meta name="force-rendering" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
 
-    <!-- MDUI CSS -->
-    <link rel="stylesheet" href="./mdui/css/mdui.css" />
-    <title>更新日志|Re:地铁计算器</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2.0.1/mdui.css">
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/mdui@2.0.1/mdui.global.js"></script>
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script type="module" src="./style.js"></script>
+    <script src="./core.js"></script>
+
+    <title>更新日志</title>
 </head>
 
-<body
-    class="mdui-appbar-with-toolbar mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-theme-layout-auto">
-    <div class="mdui-appbar mdui-appbar-fixed">
-        <div class="mdui-toolbar mdui-color-theme">
-            <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer'}">
-                <i class="mdui-icon material-icons">menu</i>
-            </a>
-            <a href="javascript:;" class="mdui-typo-headline">Re:地铁计算器</a>
-            <a href="javascript:;" class="mdui-typo-title">更新日志</a>
-            <div class="mdui-toolbar-spacer"></div>
-            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons">refresh</i>
-            </a>
-            <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#menu'}">
-                <i class="mdui-icon material-icons">more_vert</i>
-            </a>
-            <ul class="mdui-menu" id="menu">
-                <li class="mdui-menu-item">
-                    <a href="./index.html" class="mdui-ripple">返回</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="mdui-container mdui-typo">
+<body class="mdui-theme-layout-auto">
+    <style>
+        body {
+            opacity: 0;
+        }
+
+        body.ready {
+            opacity: 1;
+            transition: 0.4s opacity;
+        }
+    </style>
+
+    <script type="module">
+        await Promise.allSettled([
+            customElements.whenDefined('mdui-button'),
+            customElements.whenDefined('mdui-card'),
+            customElements.whenDefined('mdui-checkbox')
+        ]);
+
+        // 现在 button, card, checkbox 组件已经注册完成，添加 ready class，使页面淡入显示
+        document.body.classList.add('ready');
+    </script>
+    <mdui-top-app-bar variant="large" scroll-behavior="shrink elevate">
+        <mdui-button-icon icon="menu" id="drawer_opener"></mdui-button-icon>
+        <mdui-top-app-bar-title>Re:地铁计算器 - 更新日志
+            <span slot="label-large">更新日志</span></mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="refresh" onclick="location.reload();"></mdui-button-icon>
+        <mdui-dropdown>
+            <mdui-button-icon slot="trigger" icon="more_vert"></mdui-button-icon>
+            <mdui-menu>
+              <mdui-menu-item href="./index.html">返回</mdui-menu-item>
+            </mdui-menu>
+          </mdui-dropdown>
+    </mdui-top-app-bar>
+
+    <div class="mdui-prose">
         <div class="mdui-panel" mdui-panel>
             <div class="mdui-panel-item mdui-panel-item-open">
                 <div class="mdui-panel-item-header">
-                    <div class="mdui-panel-item-title">1.1.5.1</div>
+                    <div class="mdui-panel-item-title">1.1.6</div>
                     <div class="mdui-panel-item-summary">2024.1.14</div>
                     <div class="mdui-panel-item-summary">当前版本</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>若无法完成组件注册则自动切换至旧版<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>部分特殊性（感谢百度贴吧@贴吧用户_QJ5QEES）<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">修改</span></span>13062特殊性<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">恢复</span></span>自定义色彩模式<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">修复</span></span>通过url参数开启计算
+                </div>
+            </div>
+            <div class="mdui-panel-item mdui-panel-item-open">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.1.6 Beta 2.1</div>
+                    <div class="mdui-panel-item-summary">2024.1.14</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">修复</span></span>无法正常计算93173<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>年份<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>友情链接页上海地铁官网图标
+                </div>
+            </div>
+            <div class="mdui-panel-item mdui-panel-item-open">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.1.6 Beta 2</div>
+                    <div class="mdui-panel-item-summary">2023.10.21</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">恢复</span></span>友情链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">修复</span></span>更新日志界面色彩模式
+                </div>
+            </div>
+            <div class="mdui-panel-item">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.1.6 Beta 1</div>
+                    <div class="mdui-panel-item-summary">2023.10.21</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <span class="mdui-chip"><span class="mdui-chip-title">框架升级</span></span>由MDUI 1.0.2升级至MDUI 2.0.1<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>加载中效果<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">暂时移除</span></span>自定义色彩模式<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">暂时移除</span></span>友情链接<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">移除</span></span>背景图像<br/>
+                    <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>随日期更改的主题色
+                </div>
+            </div>
+            <div class="mdui-panel-item">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">1.1.5.1</div>
+                    <div class="mdui-panel-item-summary">2024.1.14</div>
                     <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                 </div>
                 <div class="mdui-panel-item-body">
@@ -51,7 +121,7 @@
                     <span class="mdui-chip"><span class="mdui-chip-title">更改</span></span>年份
                 </div>
             </div>
-            <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title">1.1.5</div>
                     <div class="mdui-panel-item-summary">2023.10.21</div>
@@ -63,7 +133,7 @@
                     <span class="mdui-chip"><span class="mdui-chip-title">新增</span></span>视觉刷新预览入口（正式实装）
                 </div>
             </div>
-            <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title">1.1.4</div>
                     <div class="mdui-panel-item-summary">2023.10.17</div>
@@ -565,18 +635,20 @@
             </div>
         </div>
     </div>
-    <div class="mdui-drawer mdui-drawer-close" id="drawer">
-        <div class="mdui-list">
-            <a href="./index.html" class="mdui-list-item mdui-ripple">主页</a>
-            <a href="./changelog.html" class="mdui-list-item mdui-ripple mdui-list-item-active">更新日志</a>
-            <a href="javascript:donate();" class="mdui-list-item mdui-ripple">发电支持</a>
-        </div>
-    </div>
+    <mdui-navigation-drawer close-on-overlay-click id="drawer" modal close-on-esc close-on-overlay-click>
+        <mdui-list>
+            <mdui-list-item href="./index.html" rounded>主页</mdui-list-item>
+            <mdui-list-item href="./changelog.html" rounded active>更新日志</mdui-list-item>
+        </mdui-list>
+    </mdui-navigation-drawer>
+    <script>
+        const navigationDrawer = document.getElementById("drawer");
+        const drawer_openButton = document.getElementById("drawer_opener");
+        //const drawer_closeButton = document.getElementById("drawer_closer");
 
-    <!-- MDUI JavaScript -->
-    <script src="./core.js"></script>
-    <script src="./mdui/js/mdui.js"></script>
-    <script src="./donate.js"></script>
+        drawer_openButton.addEventListener("click", function () { navigationDrawer.open = true });
+        //drawer_closeButton.addEventListener("click", function () { navigationDrawer.open = false });
+    </script>
 </body>
 
 </html>

@@ -16,10 +16,12 @@ var finalnum = 0;
 var carnoerror = 0;
 var url = window.location.href;
 var canshu = url.split("?");
-if (canshu.length == 2) {
-    document.getElementById('input').value = canshu[1];
-    document.title = canshu[1] + " - Re:地铁计算器"
-    receive();
+function read_num_after_load(){
+    if (canshu.length == 2) {
+        document.getElementById('input').value = canshu[1];
+        document.title = canshu[1] + " - Re:地铁计算器"
+        wuc();
+    }
 }
 function wuc() {
     if (document.getElementById('05C01').checked == true) {
@@ -1179,7 +1181,7 @@ function output() {
                                                                                                                                                                                             sp = "<br/>特殊性：显示屏特殊（独苗）（现跟1358-1360一样）"
                                                                                                                                                                                         } else {
                                                                                                                                                                                             if (final == 13062) {
-                                                                                                                                                                                                sp = "<br/>特殊性：显示屏特殊（独苗且LCD类似成都地铁）；最后一列交付"
+                                                                                                                                                                                                sp = "<br/>特殊性：显示屏特殊（独苗且LCD类似成都地铁）（现跟1358-1360一样）；最后一列交付"
                                                                                                                                                                                             } else {
                                                                                                                                                                                                 if (final == 14033 || final == 15030 || final == 18045) {
                                                                                                                                                                                                     sp = "<br/>特殊性：“上海地铁第7000节”仪式用车"
@@ -1196,7 +1198,39 @@ function output() {
                                                                                                                                                                                                                 if (final == 4006) {
                                                                                                                                                                                                                     sp = "<br/>特殊性：首列完成LCD与信号改造并上线的04A01型列车"
                                                                                                                                                                                                                 } else {
-                                                                                                                                                                                                                    sp = ""
+                                                                                                                                                                                                                    if (final == 1022) {
+                                                                                                                                                                                                                        sp = "<br/>特殊性：通河新村事故车"
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        if (final == 1031) {
+                                                                                                                                                                                                                            sp = "<br/>特殊性：双十一人民广场事故车"
+                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                            if (final == 1068) {
+                                                                                                                                                                                                                                sp = "<br/>特殊性：“9·16”徐家汇事故车"
+                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                if (final <= 4028 && final >= 4021) {
+                                                                                                                                                                                                                                    sp = "<br/>特殊性：04021-04028曾借调给2号线，编号为02025-02032"
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                    if (final <= 9010 && final >= 9001) {
+                                                                                                                                                                                                                                        sp = "<br/>特殊性：09001-09010曾在1号线运行，编号为01030-01039"
+                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                        if (final == 11020) {
+                                                                                                                                                                                                                                            sp = "<br/>特殊性：双十一嘉定新城事故车"
+                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                            if (final == 15051) {
+                                                                                                                                                                                                                                                sp = "<br/>特殊性：车头装有魔窗"
+                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                if (final == 15052) {
+                                                                                                                                                                                                                                                    sp = "<br/>特殊性：曾为“永久性”消防专列涂装，现已恢复原涂装"
+                                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                                    sp = ""
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
                                                                                                                                                                                                                 }
                                                                                                                                                                                                             }
                                                                                                                                                                                                         }

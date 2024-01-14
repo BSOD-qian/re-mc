@@ -1,59 +1,94 @@
 <!doctype html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN" class="mdui-theme-auto">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
     <meta name="renderer" content="webkit" />
-    <meta name="force-rendering" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
 
-    <!-- MDUI CSS -->
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2.0.1/mdui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/mdui@2.0.1/mdui.global.js"></script>
+    <script type="module" src="./style.js"></script>
+    <script src="./core.js"></script>
+
     <title>友情链接</title>
 </head>
 
-<body class="mdui-theme-layout-auto">
-    <div class="mdui-container card">
-        <div class="mdui-typo">
-            <h1 style="text-align: center;">友情链接</h1>
-        </div>
-        <div class="mdui-row">
-            <div class="mdui-col-xs-4">
-                <!-- 卡片的标题和副标题 -->
-                <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">上海地铁吧</div>
-                    <div class="mdui-card-primary-subtitle">百度贴吧</div>
-                </div>
-                <!-- 卡片的内容 -->
-                <div class="mdui-card-content">一个讨论上海地铁的好地方</div>
-                <!-- 卡片的按钮 -->
-                <div class="mdui-card-actions">
-                    <a href="https://tieba.baidu.com/f?kw=%E4%B8%8A%E6%B5%B7%E5%9C%B0%E9%93%81"
-                        class="mdui-btn mdui-ripple" target="_blank">访问</a>
-                </div>
-            </div>
-            <div class="mdui-col-xs-4">
-                <!-- 卡片的标题和副标题 -->
-                <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">上海地铁</div>
-                    <div class="mdui-card-primary-subtitle">官网</div>
-                </div>
-                <!-- 卡片的内容 -->
-                <div class="mdui-card-content">上海地铁官方网站</div>
-                <!-- 卡片的按钮 -->
-                <div class="mdui-card-actions">
-                    <a href="http://www.shmetro.com/"
-                        class="mdui-btn mdui-ripple" target="_blank">访问</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+<body>
+    <style>
+        body {
+            opacity: 0;
+        }
 
-    <!-- MDUI JavaScript -->
-    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+        body.ready {
+            opacity: 1;
+            transition: 0.4s opacity;
+        }
+    </style>
+
+    <script type="module">
+        await Promise.allSettled([
+            customElements.whenDefined('mdui-button'),
+            customElements.whenDefined('mdui-card'),
+            customElements.whenDefined('mdui-checkbox')
+        ]);
+
+        // 现在 button, card, checkbox 组件已经注册完成，添加 ready class，使页面淡入显示
+        document.body.classList.add('ready');
+    </script>
+    <mdui-top-app-bar variant="large" scroll-behavior="shrink elevate">
+        <mdui-button-icon icon="menu" id="drawer_opener"></mdui-button-icon>
+        <mdui-top-app-bar-title>Re:地铁计算器 - 友情链接
+            <span slot="label-large">友情链接</span></mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="refresh" onclick="location.reload();"></mdui-button-icon>
+        <mdui-dropdown>
+            <mdui-button-icon slot="trigger" icon="more_vert"></mdui-button-icon>
+            <mdui-menu>
+              <mdui-menu-item href="./index.html">返回</mdui-menu-item>
+            </mdui-menu>
+          </mdui-dropdown>
+    </mdui-top-app-bar>
+
+    <div class="mdui-prose">
+        <mdui-list>
+            <mdui-list-item>
+              上海地铁吧
+              <span slot="description">一个讨论上海地铁的地方</span>
+              <mdui-avatar slot="icon" src="https://tb3.bdstatic.com/public/icon/favicon-v2.ico"></mdui-avatar>
+              <mdui-button href="https://tieba.baidu.com/f?kw=%E4%B8%8A%E6%B5%B7%E5%9C%B0%E9%93%81" target="_blank" slot="end-icon" end-icon="arrow_forward">前往</mdui-button>
+            </mdui-list-item>
+            <mdui-list-item>
+              上海地铁官网
+              <span slot="description">上海地铁官方网站</span>
+              <mdui-avatar slot="icon" src="http://www.shmetro.com/images/metro_expor.jpg"></mdui-avatar>
+              <mdui-button href="http://www.shmetro.com/" target="_blank" slot="end-icon" end-icon="arrow_forward">前往</mdui-button>
+            </mdui-list-item>
+            <mdui-list-item>
+              蓝屏钙BSOD的哔哩哔哩频道
+              <span slot="description">作者的B站频道，夹带私货了属于是...</span>
+              <mdui-avatar slot="icon" src="https://www.bilibili.com/favicon.ico?v=1"></mdui-avatar>
+              <mdui-button href="https://space.bilibili.com/397847418" target="_blank" slot="end-icon" end-icon="arrow_forward">前往</mdui-button>
+            </mdui-list-item>
+          </mdui-list>
+    </div>
+    <mdui-navigation-drawer close-on-overlay-click id="drawer" modal close-on-esc close-on-overlay-click>
+        <mdui-list>
+            <mdui-list-item href="./index.html" rounded>主页</mdui-list-item>
+            <mdui-list-item href="./changelog.html" rounded>更新日志</mdui-list-item>
+        </mdui-list>
+    </mdui-navigation-drawer>
+    <script>
+        const navigationDrawer = document.getElementById("drawer");
+        const drawer_openButton = document.getElementById("drawer_opener");
+        //const drawer_closeButton = document.getElementById("drawer_closer");
+
+        drawer_openButton.addEventListener("click", function () { navigationDrawer.open = true });
+        //drawer_closeButton.addEventListener("click", function () { navigationDrawer.open = false });
+    </script>
 </body>
 
 </html>
