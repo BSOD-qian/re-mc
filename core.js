@@ -997,7 +997,11 @@ function output() {
                                                                                                                                                                                 if (final <= 18050 && final >= 18001) {
                                                                                                                                                                                     type = "18A01 闪电侠"
                                                                                                                                                                                 } else {
-                                                                                                                                                                                    carnoerror = 1;
+                                                                                                                                                                                    if (final <= 17038 && final >= 17029) {
+                                                                                                                                                                                        type = "17A02 西柚二世"
+                                                                                                                                                                                    } else {
+                                                                                                                                                                                        carnoerror = 1;
+                                                                                                                                                                                    }
                                                                                                                                                                                 }
                                                                                                                                                                             }
                                                                                                                                                                         }
@@ -1057,7 +1061,7 @@ function output() {
                     if (final == 1056 || final == 3038 || final == 8072 || final == 9053 || final == 9091 || final == 10043 || final == 11069 || final == 11077 || final == 13027 || final == 16048) {
                         sp = "<br/>特殊性：首列上线"
                     } else {
-                        if (final == 1057 || final == 2086 || final == 5019 || final == 6001 || final == 8047 || final == 8067 || final == 9090 || final == 10004 || final == 10045 || final == 11002 || final == 11067 || final == 11080 || final == 12002 || final == 13026 || final == 14002 || final == 15003 || final == 16003 || final == 16047 || final == 17001 || final == 18003) {
+                        if (final == 1057 || final == 2086 || final == 5019 || final == 6001 || final == 8047 || final == 8067 || final == 9090 || final == 10004 || final == 10045 || final == 11002 || final == 11067 || final == 11080 || final == 12002 || final == 13026 || final == 14002 || final == 15003 || final == 16003 || final == 16047 || final == 17001 || final == 18003 || final == 17030) {
                             sp = "<br/>特殊性：首列交付"
                         } else {
                             if (final == 1065 || final == 1067 || final == 2071 || final == 5051 || final == 8090 || final == 9105 || final == 10066 || final == 14001 || final == 16059) {
@@ -1309,10 +1313,14 @@ function output() {
     }
 }
 function output_3() {
-    if (final <= 3028 && final >= 3001) {
+    if (final <= 3011 && final >= 3001 || final <= 3028 && final >= 3013) {
         type = "03A01 黄鱼"
     } else {
-        carnoerror = 1;
+        if (final == 3012) {
+            type = "03A01 黄鱼（翻新）"
+        } else {
+            carnoerror = 1;
+        }
     }
     if (final == 3001) {
         sp = "<br/>特殊性：法国进口列车"
@@ -1326,7 +1334,11 @@ function output_3() {
                 if (final == 3026) {
                     sp = "<br/>特殊性：曾为备件车"
                 } else {
-                    sp = ""
+                    if (final == 3012) {
+                        sp = "<br/>特殊性：首列完成翻新的03A01型列车"
+                    } else {
+                        sp = ""
+                    }
                 }
             }
         }

@@ -30,10 +30,12 @@
         }
     </style>
 
-    <script type="module">
-        var jumptolegacy = setTimeout(function(){
+    <script>
+        var jumptolegacy = setTimeout(function () {
             location.href = './legacy/index.html';
-        },60000)
+        }, 60000)
+    </script>
+    <script type="module">
         await Promise.allSettled([
             customElements.whenDefined('mdui-button'),
             customElements.whenDefined('mdui-card'),
