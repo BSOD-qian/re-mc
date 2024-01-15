@@ -24,6 +24,7 @@ function read_num_after_load(){
     }
 }
 function wuc() {
+    document.title = userinput + " - Re:地铁计算器"
     if (document.getElementById('05C01').checked == true) {
         m5();
     } else {
@@ -32,7 +33,6 @@ function wuc() {
 }
 function receive() {
     userinput = document.getElementById('input').value;
-    document.title = userinput + " - Re:地铁计算器"
     length = userinput.length;
     //lineno = Math.trunc(userinput / 100000 % 10) * 10 + Math.trunc(userinput / 10000 % 10);
     lineno = userinput.substr(0, 2);
