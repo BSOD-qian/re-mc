@@ -24,7 +24,6 @@ function read_num_after_load(){
     }
 }
 function wuc() {
-    document.title = userinput + " - Re:地铁计算器"
     if (document.getElementById('05C01').checked == true) {
         m5();
     } else {
@@ -33,6 +32,7 @@ function wuc() {
 }
 function receive() {
     userinput = document.getElementById('input').value;
+    document.title = userinput + " - Re:地铁计算器"
     length = userinput.length;
     //lineno = Math.trunc(userinput / 100000 % 10) * 10 + Math.trunc(userinput / 10000 % 10);
     lineno = userinput.substr(0, 2);
@@ -200,6 +200,7 @@ function calct01() {
 
 function m5() {
     userinput = document.getElementById('input').value;
+    document.title = userinput + " - Re:地铁计算器"
     userinputn = Number(userinput);
     trainno5 = new Array();
     trainno5[2011] = "线路：5号线<br/>车号：05001<br/>车型：05C01 番茄炒蛋<br/>特殊性：阿尔斯通进口列车<br/>Tc车"
