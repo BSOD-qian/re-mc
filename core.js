@@ -16,7 +16,7 @@ var finalnum = 0;
 var carnoerror = 0;
 var url = window.location.href;
 var canshu = url.split("?");
-function read_num_after_load(){
+function read_num_after_load() {
     if (canshu.length == 2) {
         document.getElementById('input').value = canshu[1];
         document.title = canshu[1] + " - Re:地铁计算器"
@@ -348,10 +348,10 @@ function m5() {
 
 function calc3() {
     carno = userinput.substr(2, 2);
-    if (carno == 0){
+    if (carno == 0) {
         carnoerror == 1;
         output_3();
-    }else{
+    } else {
         if (year == 02) {
             trainno = Math.ceil(carno / 6)
             final = trainno + 3000
@@ -893,7 +893,7 @@ function output() {
                                     if (final <= 3049 && final >= 3037) {
                                         type = "04A02 叛徒包公"
                                     } else {
-                                        if (final <= 4028 && final >= 4001) {
+                                        if (final <= 4005 && final >= 4001 || final <= 4020 && final >= 4007 || final <= 4028 && final >= 4022) {
                                             type = "04A01 奶嘴"
                                         } else {
                                             if (final <= 4055 && final >= 4029) {
@@ -1001,7 +1001,11 @@ function output() {
                                                                                                                                                                                     if (final <= 17038 && final >= 17029) {
                                                                                                                                                                                         type = "17A02 西柚二世"
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        carnoerror = 1;
+                                                                                                                                                                                        if (final == 4006 || final == 4021) {
+                                                                                                                                                                                            type = "04A01 奶嘴（翻新）"
+                                                                                                                                                                                        } else {
+                                                                                                                                                                                            carnoerror = 1;
+                                                                                                                                                                                        }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
                                                                                                                                                                             }
@@ -1306,9 +1310,9 @@ function output() {
             }
         }
     }
-    if (carnoerror == 0){
+    if (carnoerror == 0) {
         document.getElementById('output').innerHTML = "线路：" + parseFloat(lineno) + "号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
-    }else{
+    } else {
         document.getElementById('output').innerHTML = "车体号有误";
         carnoerror = 0;
     }
@@ -1362,16 +1366,16 @@ function output_3() {
             }
         }
     }
-    if (carnoerror == 0){
+    if (carnoerror == 0) {
         document.getElementById('output').innerHTML = "线路：3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
-    }else{
+    } else {
         document.getElementById('output').innerHTML = "车体号有误";
         carnoerror = 0;
     }
 }
 function output_t01() {
     if (final == "T0101" || final == "T0102" || final == "T0103" || final == "T0104" || final == "T0105" || final == "T0106" || final == "T0107" || final == "T0108" || final == "T0109" || final == "T0110" || final == "T0111") {
-        type = "Bombardier APM 300 小灰灰<del>泰美之子</del>"
+        type = "Bombardier APM 300 小灰灰<del>泰美之子</del> <del>墨水之孙</del>"
     } else {
         carnoerror = 1;
     }
@@ -1398,9 +1402,9 @@ function output_t01() {
             }
         }
     }
-    if (carnoerror == 0){
+    if (carnoerror == 0) {
         document.getElementById('output').innerHTML = "线路：浦江线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
-    }else{
+    } else {
         document.getElementById('output').innerHTML = "车体号有误";
     }
 }
