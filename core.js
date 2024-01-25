@@ -49,7 +49,7 @@ function receive() {
                 if (length != 7) {
                     document.getElementById('output').innerHTML = "车体号有误"
                 } else {
-                    calct01();
+                    pjos();
                 }
             } else {
                 if (lineno != 1) {
@@ -189,13 +189,35 @@ function calc16() {
     final = lineno * 1000 + trainno;
     output();
 }
-
+function pjos(){
+    lineno = userinput.substr(0,3);
+    if (lineno == "T01"){
+        calct01();
+    }else{
+        sjudge();
+    }
+}
 function calct01() {
     lineno = userinput.substr(0, 3);
     carno = userinput.substr(3, 3);
     trainno = Math.ceil(carno / 4);
     final = lineno + trainno.toString().padStart(2, "0");
     output_t01();
+}
+function sjudge() {
+    lineno = userinput.substr(0,2);
+    if (lineno == "JC"){
+        calcjc();
+    }else{
+        document.getElementById('output').innerHTML = "车体号有误";
+    }
+}
+function calcjc() {
+    lineno = userinput.substr(0, 2);
+    carno = userinput.substr(2, 4);
+    trainno = carno
+    final = lineno + trainno.toString().padStart(3, "0");
+    output_jc();
 }
 
 function m5() {
@@ -1404,6 +1426,27 @@ function output_t01() {
     }
     if (carnoerror == 0) {
         document.getElementById('output').innerHTML = "线路：浦江线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    } else {
+        document.getElementById('output').innerHTML = "车体号有误";
+    }
+}
+function output_jc() {
+    if (final == "JC4001" || final == "JC4002" || final == "JC4003" || final == "JC4004" || final == "JC4005" || final == "JC4006" || final == "JC4007" || final == "JC4008" || final == "JC4009" || final == "JC4010" || final == "JC4011" || final == "JC4012" || final == "JC4013" || final == "JC4014") {
+        type = "4节"
+    } else {
+        if (final == "JC8001" || final == "JC8002" || final == "JC8003") {
+            type = "8节"
+        } else {
+            carnoerror = 1;
+        }
+    }
+    if (final == "JC4001") {
+        sp = "<br/>特殊性：首列交付"
+    } else {
+        sp = ""
+    }
+    if (carnoerror == 0) {
+        document.getElementById('output').innerHTML = "线路：机场联络线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>（注：由于机场联络线目前仅交付1列4节编组列车，故车体号格式可能与正确的车体号格式不同，目前计算出的结果仅供参考！）";
     } else {
         document.getElementById('output').innerHTML = "车体号有误";
     }
