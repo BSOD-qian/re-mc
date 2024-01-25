@@ -1428,6 +1428,7 @@ function output_t01() {
         document.getElementById('output').innerHTML = "线路：浦江线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
     } else {
         document.getElementById('output').innerHTML = "车体号有误";
+        carnoerror = 0;
     }
 }
 function output_jc() {
@@ -1449,5 +1450,6 @@ function output_jc() {
         document.getElementById('output').innerHTML = "线路：机场联络线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>（注：由于机场联络线目前仅交付1列4节编组列车，故车体号格式可能与正确的车体号格式不同，目前计算出的结果仅供参考！）";
     } else {
         document.getElementById('output').innerHTML = "车体号有误";
+        carnoerror = 0;
     }
 }
