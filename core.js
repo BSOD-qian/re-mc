@@ -189,11 +189,11 @@ function calc16() {
     final = lineno * 1000 + trainno;
     output();
 }
-function pjos(){
-    lineno = userinput.substr(0,3);
-    if (lineno == "T01"){
+function pjos() {
+    lineno = userinput.substr(0, 3);
+    if (lineno == "T01") {
         calct01();
-    }else{
+    } else {
         sjudge();
     }
 }
@@ -205,10 +205,10 @@ function calct01() {
     output_t01();
 }
 function sjudge() {
-    lineno = userinput.substr(0,2);
-    if (lineno == "JC"){
+    lineno = userinput.substr(0, 2);
+    if (lineno == "JC") {
         calcjc();
-    }else{
+    } else {
         document.getElementById('output').innerHTML = "车体号有误";
     }
 }
@@ -915,7 +915,7 @@ function output() {
                                     if (final <= 3049 && final >= 3037) {
                                         type = "04A02 叛徒包公"
                                     } else {
-                                        if (final <= 4005 && final >= 4001 || final <= 4020 && final >= 4007 || final <= 4028 && final >= 4022) {
+                                        if (final <= 4005 && final >= 4001 || final <= 4011 && final >= 4007 || final <= 4020 && final >= 4013 || final <= 4028 && final >= 4022) {
                                             type = "04A01 奶嘴"
                                         } else {
                                             if (final <= 4055 && final >= 4029) {
@@ -1023,7 +1023,7 @@ function output() {
                                                                                                                                                                                     if (final <= 17038 && final >= 17029) {
                                                                                                                                                                                         type = "17A02 西柚二世"
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        if (final == 4006 || final == 4021) {
+                                                                                                                                                                                        if (final == 4006 || final == 4021 || final == 4012) {
                                                                                                                                                                                             type = "04A01 奶嘴（翻新）"
                                                                                                                                                                                         } else {
                                                                                                                                                                                             carnoerror = 1;
@@ -1074,7 +1074,7 @@ function output() {
         }
     }
     if (final == 1040) {
-        sp = "<br/>特殊性：曾为备件车"
+        sp = "<br/>特殊性：曾为备件车，首列改5位数车体号的01A05，012373车厢的车体号被错印成012573（在01042上），"
     } else {
         if (final == 1041) {
             sp = "<br/>特殊性：左上角有编号、首列交付且上线"
@@ -1236,7 +1236,7 @@ function output() {
                                                                                                                                                                                                                             sp = "<br/>特殊性：双十一人民广场事故车"
                                                                                                                                                                                                                         } else {
                                                                                                                                                                                                                             if (final == 1068) {
-                                                                                                                                                                                                                                sp = "<br/>特殊性：“9·16”徐家汇事故车"
+                                                                                                                                                                                                                                sp = "<br/>特殊性：徐家汇事故车"
                                                                                                                                                                                                                             } else {
                                                                                                                                                                                                                                 if (final <= 4028 && final >= 4021) {
                                                                                                                                                                                                                                     sp = "<br/>特殊性：04021-04028曾借调给2号线，编号为02025-02032"
@@ -1253,7 +1253,19 @@ function output() {
                                                                                                                                                                                                                                                 if (final == 15052) {
                                                                                                                                                                                                                                                     sp = "<br/>特殊性：曾为“永久性”消防专列涂装，现已恢复原涂装"
                                                                                                                                                                                                                                                 } else {
-                                                                                                                                                                                                                                                    sp = ""
+                                                                                                                                                                                                                                                    if (final == 15020) {
+                                                                                                                                                                                                                                                        sp = "<br/>特殊性：祁安路事故车"
+                                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                                        if (final == 7032) {
+                                                                                                                                                                                                                                                            sp = "<br/>特殊性：内部装有新款电视（显示到站信息）"
+                                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                                            if (final == 1042) {
+                                                                                                                                                                                                                                                                sp = "<br/>特殊性：012373（在01040上）车厢的车体号被错印成012573"
+                                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                                sp = ""
+                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                    }
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                         }

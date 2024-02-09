@@ -1,5 +1,5 @@
 var expire_date = new Date();
-expire_date.setFullYear(2024,1,15)
+expire_date.setFullYear(2024,1,5)
 var today = new Date();
 var current = "1.1.3 Beta 1";
 document.getElementById('dialog_version').innerHTML = current;
@@ -59,7 +59,6 @@ function vercheck_pre() {
 function timebomb(){
     document.getElementById('expire').innerHTML = '<br/>评估副本，作废日期' + expire_date;
     if (expire_date < today){
-      bomb();
       setInterval("bomb();", 1000);
     }
 };
