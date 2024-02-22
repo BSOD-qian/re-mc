@@ -1024,7 +1024,7 @@ function output() {
                                                                                                                                                                                         type = "17A02 西柚二世"
                                                                                                                                                                                     } else {
                                                                                                                                                                                         if (final == 4006 || final == 4021 || final == 4012) {
-                                                                                                                                                                                            type = "04A01 奶嘴（翻新）"
+                                                                                                                                                                                            type = "04A01 奶嘴（信改）"
                                                                                                                                                                                         } else {
                                                                                                                                                                                             carnoerror = 1;
                                                                                                                                                                                         }
@@ -1356,7 +1356,7 @@ function output_3() {
         type = "03A01 黄鱼"
     } else {
         if (final == 3012) {
-            type = "03A01 黄鱼（翻新）"
+            type = "03A01 黄鱼（信改）"
         } else {
             carnoerror = 1;
         }
