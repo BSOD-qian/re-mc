@@ -73,7 +73,7 @@
     <div class="mdui-prose">
         <mdui-text-field label="输入车体号" maxlength="7" counter id="input" onkeydown="if(event.keyCode==13){wuc()}"
             helper="车体号应为5位、6位或7位（例：92113、114511、T010011）" helper-on-focus required clearable></mdui-text-field>
-        <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车</mdui-checkbox>
+        <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车，且车体号为5位，或车体号为6位并且第3位为2、3、4<a href="https://www.bilibili.com/read/cv31820448/" target="_blank">什么意思？</a></mdui-checkbox>
         <mdui-button onclick="wuc();" full-width end-icon="arrow_forward">计算</mdui-button>
 
         <div id="output">在您开始计算后，计算结果将显示于此</div>
@@ -101,7 +101,7 @@
             Ver <span id="dialog_version"></span><br />使用<a href="./GNUGPLV3.txt">GNU General
                 Public License v3.0</a>授权<br />2024 @蓝屏钙BSOD<span id="expire"></span>
             <h1>鸣谢</h1>
-            使用<a href="https://www.mdui.org" target="_blank">MDUI 2.0.3</a>框架<br />使用魔都轨交信息组的编组表<br />使用<a
+            使用<a href="https://www.mdui.org" target="_blank">MDUI 2.0.3</a>框架<br />使用<a href="https://mp.weixin.qq.com/s/PsveNPVjda8iszEL3wiASQ">@一路逆风的编组表</a><br />使用<a
                 href="https://docsify.js.org/#/zh-cn/pwa" target="_blank">docsify</a>提供的service worker文件<br />
             使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest"
                 target="_blank">MDN</a>提供的manifest文件并加以修改<br /><a href="./friendly_link.html">友情链接</a>
