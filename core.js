@@ -120,7 +120,19 @@ function calc14() {
 function calc5() {
     //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
     carno = userinput.substr(2, 3)
-    trainno = Math.ceil((carno - 68) / 6 + 18);
+    if (carno <= 52 && carno >= 1){
+        trainno = Math.ceil(carno / 4);
+    }else{
+        if (carno <= 68 && carno >= 53){
+            trainno = Math.ceil(carno / 4 + 1);
+        }else{
+            if (carno <= 266 && carno >= 69){
+                trainno = Math.ceil((carno - 68) / 6 + 18);
+            }else{
+                
+            }
+        }
+    }
     final = lineno * 1000 + trainno;
     output();
 }
@@ -1026,7 +1038,11 @@ function output() {
                                                                                                                                                                                         if (final == 4006 || final == 4021 || final == 4012) {
                                                                                                                                                                                             type = "04A01 奶嘴（信改）"
                                                                                                                                                                                         } else {
-                                                                                                                                                                                            carnoerror = 1;
+                                                                                                                                                                                            if (final <= 5013 && final >= 5001 || final <= 5018 && final >= 5015) {
+                                                                                                                                                                                                type = "05C01 番茄炒蛋"
+                                                                                                                                                                                            } else {
+                                                                                                                                                                                                carnoerror = 1;
+                                                                                                                                                                                            }
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
@@ -1262,7 +1278,15 @@ function output() {
                                                                                                                                                                                                                                                             if (final == 1042) {
                                                                                                                                                                                                                                                                 sp = "<br/>特殊性：012373（在01040上）车厢的车体号被错印成012573"
                                                                                                                                                                                                                                                             } else {
-                                                                                                                                                                                                                                                                sp = ""
+                                                                                                                                                                                                                                                                if (final == 5001) {
+                                                                                                                                                                                                                                                                    sp = "<br/>特殊性：阿尔斯通进口列车"
+                                                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                                                    if (final == 5018) {
+                                                                                                                                                                                                                                                                        sp = "<br/>特殊性：推算编号应为05014"
+                                                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                                                        sp = ""
+                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                }
                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                     }
