@@ -927,7 +927,7 @@ function output() {
                                     if (final <= 3049 && final >= 3037) {
                                         type = "04A02 叛徒包公"
                                     } else {
-                                        if (final <= 4005 && final >= 4001 || final <= 4011 && final >= 4007 || final <= 4020 && final >= 4013 || final <= 4028 && final >= 4022) {
+                                        if (final <= 4005 && final >= 4001 || final <= 4011 && final >= 4007 || final <= 4016 && final >= 4013 || final <= 4020 && final >= 4018 || final <= 4028 && final >= 4022) {
                                             type = "04A01 奶嘴"
                                         } else {
                                             if (final <= 4055 && final >= 4029) {
@@ -1035,7 +1035,7 @@ function output() {
                                                                                                                                                                                     if (final <= 17038 && final >= 17029) {
                                                                                                                                                                                         type = "17A02 西柚二世"
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        if (final == 4006 || final == 4021 || final == 4012) {
+                                                                                                                                                                                        if (final == 4006 || final == 4021 || final == 4012 || final == 4017) {
                                                                                                                                                                                             type = "04A01 奶嘴（信改）"
                                                                                                                                                                                         } else {
                                                                                                                                                                                             if (final <= 5013 && final >= 5001 || final <= 5018 && final >= 5015) {
@@ -1284,7 +1284,11 @@ function output() {
                                                                                                                                                                                                                                                                     if (final == 5018) {
                                                                                                                                                                                                                                                                         sp = "<br/>特殊性：推算编号应为05014"
                                                                                                                                                                                                                                                                     } else {
-                                                                                                                                                                                                                                                                        sp = ""
+                                                                                                                                                                                                                                                                        if (final == 11013) {
+                                                                                                                                                                                                                                                                            sp = "<br/>特殊性：225涂鸦事件车"
+                                                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                                                            sp = ""
+                                                                                                                                                                                                                                                                        }
                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                             }
