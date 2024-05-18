@@ -1444,7 +1444,7 @@ function output_t01() {
     if (final == "T0101") {
         sp = "<br/>特殊性：首列交付"
     } else {
-
+        sp = ""
     }
     finalnum = userinput.substr(6, 1);
     if (finalnum == 1) {
