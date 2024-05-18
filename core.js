@@ -907,7 +907,7 @@ function output() {
             type = "01A06 钢铁侠"
         } else {
             if (final <= 1086 && final >= 1067) {
-                type = "01A06 钢铁侠"
+                type = "01A07 钢铁侠二世"
             } else {
                 if (final <= 2053 && final >= 2033) {
                     type = "02A02 青鱼"
