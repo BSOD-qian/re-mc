@@ -60,9 +60,10 @@
             <mdui-button-icon icon="refresh" onclick="location.reload();"></mdui-button-icon>
         </mdui-tooltip>
         <mdui-dropdown>
-            <mdui-button-icon slot="trigger" icon="more_vert"></mdui-button-icon>
+            <mdui-button-icon slot="trigger" icon="more_vert" id="moremenu"></mdui-button-icon>
             <mdui-menu>
                 <mdui-menu-item id="version">关于</mdui-menu-item>
+                <mdui-menu-item onclick="intro();">观看教程</mdui-menu-item>
                 <mdui-menu-item href="https://kook.top/GL1gkO">访问KOOK频道</mdui-menu-item>
                 <mdui-menu-item href="https://tieba.baidu.com/p/8906181721">访问贴吧原帖</mdui-menu-item>
                 <mdui-menu-item href="https://github.com/BSOD-qian/re-mc">访问Github仓库</mdui-menu-item>
@@ -74,7 +75,7 @@
         <mdui-text-field label="输入车体号" maxlength="7" counter id="input" onkeydown="if(event.keyCode==13){wuc()}"
             helper="车体号应为5位、6位或7位（例：92113、114511、T010011）" helper-on-focus required clearable></mdui-text-field>
         <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车，且车体号为5位，或车体号为6位并且第3位为2、3、4<a href="https://www.bilibili.com/read/cv31820448/" target="_blank">什么意思？</a></mdui-checkbox>
-        <mdui-button onclick="wuc();" full-width end-icon="arrow_forward">计算</mdui-button>
+        <mdui-button onclick="wuc();" full-width end-icon="arrow_forward" id="calcbutton">计算</mdui-button>
 
         <div id="output">在您开始计算后，计算结果将显示于此</div>
     </div>
@@ -123,6 +124,8 @@
     </script>
     <script src="./versioncheck.js"></script>
     <script src="./brightness.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </body>
 
 </html>
