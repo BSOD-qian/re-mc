@@ -64,7 +64,7 @@ function intro() {
           { element: '#output', popover: { title: '这是输出区', description: '计算结果会输出在这里', side: "left", align: 'start' }},
           { element: '#drawer_opener', popover: { title: '这是抽屉', description: '在这里查看更新记录', side: "left", align: 'start' }},
           { element: '#brightness_control', popover: { title: '这是色彩模式切换键', description: '在这里切换色彩模式', side: "left", align: 'start' }},
-          { element: '#moremenu', popover: { title: '这是菜单', description: '在这里可以查看版本信息，访问KOOK频道、贴吧原帖、Github仓库，或者重新观看本教程', side: "left", align: 'start' }},
+          { element: '#moremenu', popover: { title: '这是菜单', description: '在这里可以查看版本信息，访问贴吧原帖、Github仓库，或者重新观看本教程', side: "left", align: 'start' }},
           { element: 'body', popover: { title: '您已完成教程', description: '祝您玩得愉快', side: "left", align: 'start' }},
         ]
       });

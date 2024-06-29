@@ -120,16 +120,16 @@ function calc14() {
 function calc5() {
     //carno = Math.trunc(userinput / 1000 % 10) * 100 + Math.trunc(userinput / 100 % 10) * 10 + Math.trunc(userinput / 10 % 10);
     carno = userinput.substr(2, 3)
-    if (carno <= 52 && carno >= 1){
+    if (carno <= 52 && carno >= 1) {
         trainno = Math.ceil(carno / 4);
-    }else{
-        if (carno <= 68 && carno >= 53){
+    } else {
+        if (carno <= 68 && carno >= 53) {
             trainno = Math.ceil(carno / 4 + 1);
-        }else{
-            if (carno <= 266 && carno >= 69){
+        } else {
+            if (carno <= 266 && carno >= 69) {
                 trainno = Math.ceil((carno - 68) / 6 + 18);
-            }else{
-                
+            } else {
+
             }
         }
     }
@@ -383,22 +383,34 @@ function m5() {
 function calc3() {
     carno = userinput.substr(2, 2);
     if (carno == 0) {
-        carnoerror == 1;
+        carnoerror = 1;
         output_3();
     } else {
         if (year == 02) {
-            trainno = Math.ceil(carno / 6)
-            final = trainno + 3000
+            if (carno <= 30 && carno >= 1) {
+                trainno = Math.ceil(carno / 6)
+                final = trainno + 3000
+            } else {
+                carnoerror = 1
+            }
             output_3();
         } else {
             if (year == 03) {
-                trainno = Math.ceil(carno / 6 + 5)
-                final = trainno + 3000
+                if (carno <= 96 && carno >= 1) {
+                    trainno = Math.ceil(carno / 6 + 5)
+                    final = trainno + 3000
+                } else {
+                    carnoerror = 1
+                }
                 output_3();
             } else {
                 if (year == 04) {
-                    trainno = Math.ceil(carno / 6 + 21)
-                    final = trainno + 3000
+                    if (carnoerror <= 42 && carnoerror >= 1) {
+                        trainno = Math.ceil(carno / 6 + 21)
+                        final = trainno + 3000
+                    } else {
+                        carnoerror = 1
+                    }
                     output_3();
                 }
             }
@@ -451,94 +463,94 @@ function myear() {
     userinputn = Number(userinput);
     trainnoyear = new Array();
     //01A01
-    trainnoyear[92011] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>Tc车"
-    trainnoyear[92022] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>Mp车"
-    trainnoyear[92033] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>M车"
-    trainnoyear[93442] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>Mp车"
-    trainnoyear[93453] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>M车"
-    trainnoyear[94102] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>Mp车"
-    trainnoyear[94113] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>M车"
-    trainnoyear[94121] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八<br/>特殊性：张江实训专用车<br/>Tc车"
-    trainnoyear[93121] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Tc车"
-    trainnoyear[93262] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
-    trainnoyear[93273] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
-    trainnoyear[14652] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
-    trainnoyear[14663] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
-    trainnoyear[92102] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
-    trainnoyear[93233] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
-    trainnoyear[93311] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Tc车"
-    trainnoyear[92131] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[92142] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92153] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94022] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94033] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92162] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92173] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92181] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[92191] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[92202] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92213] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94202] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94213] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92222] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92233] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92241] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93011] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93022] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[93033] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94162] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94173] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[93042] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[93053] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[93061] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[92061] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[92053] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92042] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94053] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94042] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94093] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94082] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94071] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93251] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93142] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[93153] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[93462] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[93473] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[93282] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[93173] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92121] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93191] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Tc车"
-    trainnoyear[93202] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
-    trainnoyear[93213] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
-    trainnoyear[94142] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
-    trainnoyear[94153] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
-    trainnoyear[93222] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
-    trainnoyear[92113] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
-    trainnoyear[93361] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Tc车"
-    trainnoyear[93131] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>Tc车"
-    trainnoyear[93322] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>Mp车"
-    trainnoyear[93333] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>M车"
-    trainnoyear[93402] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>Mp车"
-    trainnoyear[93413] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>M车"
-    trainnoyear[93162] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>Mp车"
-    trainnoyear[93293] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>M车"
-    trainnoyear[93301] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八<br/>特殊性：现作备件车<br/>Tc车"
-    trainnoyear[93181] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93353] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[93342] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[94233] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[94222] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92093] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>M车"
-    trainnoyear[92082] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>Mp车"
-    trainnoyear[92071] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八<br/>Tc车"
-    trainnoyear[93071] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Tc车"
-    trainnoyear[93082] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
-    trainnoyear[93093] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
-    trainnoyear[93382] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
-    trainnoyear[93393] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
-    trainnoyear[93102] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
-    trainnoyear[93113] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
-    trainnoyear[93241] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Tc车"
+    trainnoyear[92011] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>Tc车"
+    trainnoyear[92022] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>Mp车"
+    trainnoyear[92033] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>M车"
+    trainnoyear[93442] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>Mp车"
+    trainnoyear[93453] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>M车"
+    trainnoyear[94102] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>Mp车"
+    trainnoyear[94113] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>M车"
+    trainnoyear[94121] = "线路：1号线<br/>车号：01001<br/>车型：01A01 老老八（已退役）<br/>特殊性：张江实训专用车<br/>Tc车"
+    trainnoyear[93121] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Tc车"
+    trainnoyear[93262] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
+    trainnoyear[93273] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
+    trainnoyear[14652] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
+    trainnoyear[14663] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
+    trainnoyear[92102] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
+    trainnoyear[93233] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
+    trainnoyear[93311] = "线路：1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Tc车"
+    trainnoyear[92131] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92142] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92153] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94022] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94033] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92162] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92173] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92181] = "线路：1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92191] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92202] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92213] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94202] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94213] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92222] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92233] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92241] = "线路：1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93011] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93022] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[93033] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94162] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94173] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[93042] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[93053] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[93061] = "线路：1号线<br/>车号：01005<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92061] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92053] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92042] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94053] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94042] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94093] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94082] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94071] = "线路：1号线<br/>车号：01006<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93251] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93142] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[93153] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[93462] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[93473] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[93282] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[93173] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92121] = "线路：1号线<br/>车号：01007<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93191] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Tc车"
+    trainnoyear[93202] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
+    trainnoyear[93213] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
+    trainnoyear[94142] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
+    trainnoyear[94153] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
+    trainnoyear[93222] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Mp车"
+    trainnoyear[92113] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>M车"
+    trainnoyear[93361] = "线路：1号线<br/>车号：01008<br/>车型：01A01 老老八（已退役）<br/>特殊性：含国产首节A型车暨特殊修复车厢,最后一列扩编的DC01B型<br/>Tc车"
+    trainnoyear[93131] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>Tc车"
+    trainnoyear[93322] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>Mp车"
+    trainnoyear[93333] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>M车"
+    trainnoyear[93402] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>Mp车"
+    trainnoyear[93413] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>M车"
+    trainnoyear[93162] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>Mp车"
+    trainnoyear[93293] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>M车"
+    trainnoyear[93301] = "线路：1号线<br/>车号：01009<br/>车型：01A01 老老八（已退役）<br/>特殊性：现作备件车<br/>Tc车"
+    trainnoyear[93181] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93353] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[93342] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[94233] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[94222] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92093] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>M车"
+    trainnoyear[92082] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>Mp车"
+    trainnoyear[92071] = "线路：1号线<br/>车号：01010<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[93071] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Tc车"
+    trainnoyear[93082] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
+    trainnoyear[93093] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
+    trainnoyear[93382] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
+    trainnoyear[93393] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
+    trainnoyear[93102] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Mp车"
+    trainnoyear[93113] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>M车"
+    trainnoyear[93241] = "线路：1号线<br/>车号：01014<br/>车型：01A01 老老八（已退役）<br/>特殊性：首列直改交且扩编同时进行，首列上线<br/>Tc车"
     //01A02
     trainnoyear[93371] = "线路：1号线<br/>车号：01011<br/>车型：01A02 伪八二世<br/>Tc车"
     trainnoyear[93421] = "线路：1号线<br/>车号：01011<br/>车型：01A02 伪八二世<br/>Tc车"
@@ -1101,13 +1113,13 @@ function output() {
                 if (final == 1053 || final == 1066 || final == 1082 || final == 2087 || final == 2116 || final == 3048 || final == 7071 || final == 7074 || final == 8028 || final == 8045 || final == 8081 || final == 9085 || final == 9100 || final == 10052 || final == 11066 || final == 11068 || final == 11076 || final == 12029 || final == 12056 || final == 12075 || final == 13054 || final == 16061) {
                     sp = "<br/>特殊性：最后一列上线"
                 } else {
-                    if (final == 1056 || final == 3038 || final == 8072 || final == 9053 || final == 9091 || final == 10043 || final == 11069 || final == 11077 || final == 13027 || final == 16048) {
+                    if (final == 1056 || final == 3038 || final == 8072 || final == 9053 || final == 9091 || final == 10043 || final == 11069 || final == 11077 || final == 13027 || final == 16048 || final == 17033) {
                         sp = "<br/>特殊性：首列上线"
                     } else {
                         if (final == 1057 || final == 2086 || final == 5019 || final == 6001 || final == 8047 || final == 8067 || final == 9090 || final == 10004 || final == 10045 || final == 11002 || final == 11067 || final == 11080 || final == 12002 || final == 13026 || final == 14002 || final == 15003 || final == 16003 || final == 16047 || final == 17001 || final == 18003 || final == 17030) {
                             sp = "<br/>特殊性：首列交付"
                         } else {
-                            if (final == 1065 || final == 1067 || final == 2071 || final == 5051 || final == 8090 || final == 9105 || final == 10066 || final == 14001 || final == 16059) {
+                            if (final == 1065 || final == 1067 || final == 2071 || final == 5051 || final == 8090 || final == 9105 || final == 10066 || final == 14001 || final == 16059 || final == 17038) {
                                 sp = "<br/>特殊性：最后一列交付"
                             } else {
                                 if (final == 1069 || final == 2034 || final == 3030 || final == 4030 || final == 6025 || final == 6037 || final == 6057 || final == 7043 || final == 7073 || final == 8029 || final == 9012 || final == 12043 || final == 12057) {
@@ -1481,13 +1493,13 @@ function output_jc() {
             carnoerror = 1;
         }
     }
-    if (final == "JC4001") {
+    if (final == "JC4001" || final == "JC8001") {
         sp = "<br/>特殊性：首列交付"
     } else {
         sp = ""
     }
     if (carnoerror == 0) {
-        document.getElementById('output').innerHTML = "线路：机场联络线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>（注：由于机场联络线目前仅交付1列4节编组列车，故车体号格式可能与正确的车体号格式不同，目前计算出的结果仅供参考！）";
+        document.getElementById('output').innerHTML = "线路：机场联络线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp;
     } else {
         document.getElementById('output').innerHTML = "车体号有误";
         carnoerror = 0;
