@@ -5,15 +5,22 @@ var year = 0
 var carno = 0;
 var year = 0;
 var trainno = 0;
+var trainno5c = 0;
 var trainno5 = 0;
 var trainnoyear = 0;
 var trainnosp = 0;
 var final = 0;
+var final5 = 0;
 var length = 0;
 var type = 0;
 var sp = 0;
+var sp5 = 0;
 var finalnum = 0;
 var carnoerror = 0;
+var error3 = 0;
+var error5 = 0;
+var type3 = 0;
+var type5 = 0;
 var url = window.location.href;
 var canshu = url.split("?");
 function read_num_after_load() {
@@ -40,7 +47,7 @@ function receive() {
         if (length == 5) {
             year = userinput.substr(0, 2);
             if (year == 02 || year == 03 || year == 04) {
-                calc3();
+                calc3_5();
             } else {
                 myear();
             }
@@ -380,38 +387,50 @@ function m5() {
     }
 }
 
-function calc3() {
+function calc3_5() {
     carno = userinput.substr(2, 2);
     if (carno == 0) {
         carnoerror = 1;
-        output_3();
+        output_3_5();
     } else {
         if (year == 02) {
             if (carno <= 30 && carno >= 1) {
                 trainno = Math.ceil(carno / 6)
+                trainno5c = Math.ceil(carno / 4)
                 final = trainno + 3000
+                final5 = trainno5c + 5000
             } else {
-                carnoerror = 1
+                error3 = 1;
+                error5 = 1;
             }
-            output_3();
+            output_3_5();
         } else {
             if (year == 03) {
                 if (carno <= 96 && carno >= 1) {
                     trainno = Math.ceil(carno / 6 + 5)
+                    trainno5c = Math.ceil(carno / 4 + 1)
                     final = trainno + 3000
+                    final5 = trainno5c + 5000
                 } else {
-                    carnoerror = 1
+                    error3 = 1;
+                    error5 = 1;
                 }
-                output_3();
+                output_3_5();
             } else {
                 if (year == 04) {
                     if (carnoerror <= 42 && carnoerror >= 1) {
                         trainno = Math.ceil(carno / 6 + 21)
+                        trainno5c = Math.ceil(carno / 4 + 11)
+                        if (trainno5c == 14){
+                            trainno5c = 18
+                        }
                         final = trainno + 3000
+                        final5 = trainno5c + 5000
                     } else {
-                        carnoerror = 1
+                        error3 = 1;
+                        error5 = 1;
                     }
-                    output_3();
+                    output_3_5();
                 }
             }
         }
@@ -1387,15 +1406,20 @@ function output() {
         carnoerror = 0;
     }
 }
-function output_3() {
+function output_3_5() {
     if (final <= 3011 && final >= 3001 || final <= 3028 && final >= 3013) {
-        type = "03A01 黄鱼"
+        type3 = "03A01 黄鱼"
     } else {
         if (final == 3012) {
-            type = "03A01 黄鱼（信改）"
+            type3 = "03A01 黄鱼（信改）"
         } else {
-            carnoerror = 1;
+            error3 = 1;
         }
+    }
+    if (final5 <= 5013 && final5 >= 5001 || final5 <= 5018 && final5 >= 5015) {
+        type5 = "05C01 番茄炒蛋"
+    } else {
+        error5 = 1;
     }
     if (final == 3001) {
         sp = "<br/>特殊性：法国进口列车"
@@ -1418,6 +1442,15 @@ function output_3() {
             }
         }
     }
+    if (final5 == 5001) {
+        sp5 = "<br/>特殊性：阿尔斯通进口列车"
+    } else {
+        if (final5 == 5005) {
+            sp5 = "<br/>特殊性：首列改为五位数车号"
+        } else {
+            sp5 = ""
+        }
+    }
     finalnum = userinput.substr(4, 1);
     if (finalnum == 1) {
         tcmpm = "Tc车"
@@ -1436,12 +1469,26 @@ function output_3() {
             }
         }
     }
-    if (carnoerror == 0) {
-        document.getElementById('output').innerHTML = "线路：地铁3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp + "<br/>" + tcmpm;
+    console.log(error3 + "/" + error5)
+    if (error3 == 0 && error5 == 0) {
+        document.getElementById('output').innerHTML = "线路：地铁3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type3 + sp + "<br/>" + tcmpm + "<br/><br/>线路：地铁5号线<br/>车号：" + final5.toString().padStart(5, "0") + "<br/>车型：" + type5 + sp5 + "<br/>" + tcmpm;
     } else {
-        document.getElementById('output').innerHTML = "车体号有误";
-        carnoerror = 0;
+        if (error3 == 1 && error5 == 0) {
+            document.getElementById('output').innerHTML = "线路：地铁5号线<br/>车号：" + final5.toString().padStart(5, "0") + "<br/>车型：" + type5 + sp5 + "<br/>" + tcmpm;
+            error3 = 0;
+        } else {
+            if (error3 == 0 && error5 == 1) {
+                document.getElementById('output').innerHTML = "线路：地铁3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type3 + sp + "<br/>" + tcmpm;
+                error5 = 0;
+            } else {
+                if (error3 == 1 && error5 == 1) {
+                    document.getElementById('output').innerHTML = "车体号有误";
+                    error3 = 0;
+                    error5 = 0;
+            }
+        }
     }
+}
 }
 function output_t01() {
     if (final == "T0101" || final == "T0102" || final == "T0103" || final == "T0104" || final == "T0105" || final == "T0106" || final == "T0107" || final == "T0108" || final == "T0109" || final == "T0110" || final == "T0111") {
