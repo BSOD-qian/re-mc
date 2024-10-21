@@ -3,6 +3,7 @@ var userinputn = 0;
 var lineno = 0;
 var year = 0
 var carno = 0;
+var carno5 = 0;
 var year = 0;
 var trainno = 0;
 var trainno5c = 0;
@@ -394,41 +395,59 @@ function calc3_5() {
         output_3_5();
     } else {
         if (year == 02) {
-            if (carno <= 30 && carno >= 1) {
+            if (carno <= 4 && carno >= 1) {
                 trainno = Math.ceil(carno / 6)
                 trainno5c = Math.ceil(carno / 4)
                 final = trainno + 3000
                 final5 = trainno5c + 5000
             } else {
-                error3 = 1;
-                error5 = 1;
+                if (carno <= 30 && carno >= 5) {
+                    trainno = Math.ceil(carno / 6)
+                    final = trainno + 3000
+                    error5 = 1;
+                } else {
+                    error3 = 1;
+                    error5 = 1;
+                }
             }
             output_3_5();
         } else {
             if (year == 03) {
-                if (carno <= 96 && carno >= 1) {
+                if (carno <= 40 && carno >= 1) {
                     trainno = Math.ceil(carno / 6 + 5)
                     trainno5c = Math.ceil(carno / 4 + 1)
                     final = trainno + 3000
                     final5 = trainno5c + 5000
                 } else {
-                    error3 = 1;
-                    error5 = 1;
+                    if (carno <= 96 && carno >= 41) {
+                        trainno = Math.ceil(carno / 6 + 5)
+                        final = trainno + 3000
+                        error5 = 1;
+                    } else {
+                        error3 = 1;
+                        error5 = 1;
+                    }
                 }
                 output_3_5();
             } else {
                 if (year == 04) {
-                    if (carnoerror <= 42 && carnoerror >= 1) {
+                    if (carno <= 24 && carno >= 1) {
                         trainno = Math.ceil(carno / 6 + 21)
                         trainno5c = Math.ceil(carno / 4 + 11)
-                        if (trainno5c == 14){
+                        if (trainno5c == 14) {
                             trainno5c = 18
                         }
                         final = trainno + 3000
                         final5 = trainno5c + 5000
                     } else {
-                        error3 = 1;
-                        error5 = 1;
+                        if (carno <= 42 && carno >= 25) {
+                            trainno = Math.ceil(carno / 6 + 21)
+                            final = trainno + 3000
+                            error5 = 1;
+                        } else {
+                            error3 = 1;
+                            error5 = 1;
+                        }
                     }
                     output_3_5();
                 }
@@ -1448,7 +1467,11 @@ function output_3_5() {
         if (final5 == 5005) {
             sp5 = "<br/>特殊性：首列改为五位数车号"
         } else {
-            sp5 = ""
+            if (final5 == 5018) {
+                sp5 = "<br/>特殊性：推算编号应为05014"
+            } else {
+                sp5 = ""
+            }
         }
     }
     finalnum = userinput.substr(4, 1);
@@ -1469,7 +1492,6 @@ function output_3_5() {
             }
         }
     }
-    console.log(error3 + "/" + error5)
     if (error3 == 0 && error5 == 0) {
         document.getElementById('output').innerHTML = "线路：地铁3号线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type3 + sp + "<br/>" + tcmpm + "<br/><br/>线路：地铁5号线<br/>车号：" + final5.toString().padStart(5, "0") + "<br/>车型：" + type5 + sp5 + "<br/>" + tcmpm;
     } else {
@@ -1485,10 +1507,10 @@ function output_3_5() {
                     document.getElementById('output').innerHTML = "车体号有误";
                     error3 = 0;
                     error5 = 0;
+                }
             }
         }
     }
-}
 }
 function output_t01() {
     if (final == "T0101" || final == "T0102" || final == "T0103" || final == "T0104" || final == "T0105" || final == "T0106" || final == "T0107" || final == "T0108" || final == "T0109" || final == "T0110" || final == "T0111") {
