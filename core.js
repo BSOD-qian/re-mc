@@ -405,7 +405,7 @@ function calc3() {
                 output_3();
             } else {
                 if (year == 04) {
-                    if (carnoerror <= 42 && carnoerror >= 1) {
+                    if (carno <= 42 && carno >= 1) {
                         trainno = Math.ceil(carno / 6 + 21)
                         final = trainno + 3000
                     } else {
@@ -1050,7 +1050,11 @@ function output() {
                                                                                                                                                                                         if (final <= 5013 && final >= 5001 || final <= 5018 && final >= 5015) {
                                                                                                                                                                                             type = "05C01 番茄炒蛋"
                                                                                                                                                                                         } else {
-                                                                                                                                                                                            carnoerror = 1;
+                                                                                                                                                                                            if (final <= 13086 && final >= 13063) {
+                                                                                                                                                                                                type = "13A03"
+                                                                                                                                                                                            } else {
+                                                                                                                                                                                                carnoerror = 1;
+                                                                                                                                                                                            }
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
