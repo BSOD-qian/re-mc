@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN" class="mdui-theme-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./mdui/mdui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="module" src="./mdui/mdui.global.js"></script>
+    <script type="module" src="./style.js"></script>
+    <script src="./core.js"></script>
+
+    <title>Re:地铁计算器</title>
+</head>
+
+<body>
+    <style>
+        body {
+            opacity: 0;
+        }
+
+        body.ready {
+            opacity: 1;
+            transition: 0.4s opacity;
+        }
+    </style>
+
+    <script>
+        var jumptolegacy = setTimeout(function () {
+            location.href = './legacy/index.html';
+        }, 60000)
+    </script>
+    <script type="module">
+        await Promise.allSettled([
+            customElements.whenDefined('mdui-button'),
+            customElements.whenDefined('mdui-card'),
+            customElements.whenDefined('mdui-checkbox')
+        ]);
+
+        // 现在 button, card, checkbox 组件已经注册完成，添加 ready class，使页面淡入显示
+        document.body.classList.add('ready');
+        clearTimeout(jumptolegacy)
+        console.log("okay")
+        theme_after_load();
+        read_num_after_load();
+    </script>
+    <mdui-top-app-bar variant="small" scroll-behavior="shrink elevate" style="-webkit-app-region: drag">
+        <mdui-top-app-bar-title>Re:地铁计算器</mdui-top-app-bar-title>
+        <div style="flex-grow: 1; "></div>
+        <mdui-tooltip content="色彩模式切换" id="brightness_tooltip" style="-webkit-app-region: no-drag">
+            <mdui-button-icon icon="brightness_auto" onclick="change();" id="brightness_control" style="-webkit-app-region: no-drag"></mdui-button-icon>
+        </mdui-tooltip>
+        <mdui-dropdown style="-webkit-app-region: no-drag">
+            <mdui-button-icon slot="trigger" icon="more_vert" id="moremenu" style="-webkit-app-region: no-drag"></mdui-button-icon>
+            <mdui-menu style="-webkit-app-region: no-drag">
+                <mdui-menu-item id="version">关于</mdui-menu-item>
+                <mdui-menu-item onclick="intro();">观看教程</mdui-menu-item>
+                <!--<mdui-menu-item href="https://kook.top/GL1gkO">访问KOOK频道</mdui-menu-item>-->
+                <mdui-menu-item href="https://tieba.baidu.com/p/8906181721" target="_blank">访问贴吧原帖</mdui-menu-item>
+                <mdui-menu-item href="https://github.com/BSOD-qian/re-mc" target="_blank">访问Github仓库</mdui-menu-item>
+            </mdui-menu>
+        </mdui-dropdown>
+        <mdui-tooltip content="最小化">
+            <mdui-button-icon icon="keyboard_arrow_down" id="min" style="-webkit-app-region: no-drag"></mdui-button-icon>
+        </mdui-tooltip>
+        <mdui-tooltip content="最大化/还原">
+            <mdui-button-icon icon="keyboard_arrow_up" id="max" style="-webkit-app-region: no-drag"></mdui-button-icon>
+        </mdui-tooltip>
+        <mdui-tooltip content="关闭">
+            <mdui-button-icon icon="close" id="close" style="-webkit-app-region: no-drag"></mdui-button-icon>
+        </mdui-tooltip>
+    </mdui-top-app-bar>
+    <div class="mdui-prose">
+        <mdui-text-field label="输入车体号" maxlength="7" counter id="input" onkeydown="if(event.keyCode==13){wuc()}"
+            helper="车体号应为5位、6位或7位（例：92113、114511、T010011）" helper-on-focus required clearable></mdui-text-field>
+        <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车，且车体号为5位，或车体号为6位并且第3位为2、3、4<a
+                href="https://www.bilibili.com/read/cv31820448/" target="_blank">什么意思？</a></mdui-checkbox>
+        <mdui-button onclick="wuc();" full-width end-icon="arrow_forward" id="calcbutton">计算</mdui-button>
+
+        <div id="output">在您开始计算后，计算结果将显示于此</div>
+    </div>
+
+    <mdui-dialog id="version_dialog" close-on-overlay-click open="false">
+        <span slot="headline">关于“Re:地铁计算器”</span>
+        <span slot="description">
+            <img src="./favicon.png" style="height: 6em;" />
+            <h1>版本信息</h1>
+            Ver <span id="dialog_version"></span><br />使用<a href="./apache2.0.txt" target="_blank"> Apache License Version
+                2.0</a>授权<br />2024 @蓝屏钙BSOD<span id="expire"></span>
+            <h1>鸣谢</h1>
+            使用<a href="https://www.mdui.org" target="_blank">MDUI 2.1.2</a>框架<br />使用<a
+                href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js</a><br />使用<a
+                href="https://mp.weixin.qq.com/s/PsveNPVjda8iszEL3wiASQ" target="_blank">@一路逆风的编组表</a><br />使用<a
+                href="https://docsify.js.org/#/zh-cn/pwa" target="_blank">docsify</a>提供的service worker文件<br />
+            使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest"
+                target="_blank">MDN</a>提供的manifest文件并加以修改<br /><a href="./friendly_link.html" target="_blank">友情链接</a>
+        </span>
+        <mdui-button slot="action" id="version_dialog_ok_button">好</mdui-button>
+    </mdui-dialog>
+    <script>
+        const version_dialog = document.getElementById("version_dialog");
+        const version_dialog_openButton = document.getElementById("version")
+        const version_dialog_closeButton = document.getElementById("version_dialog_ok_button");
+
+        version_dialog_openButton.addEventListener("click", function () { version_dialog.open = true });
+        version_dialog_closeButton.addEventListener("click", function () { version_dialog.open = false });
+    </script>
+    <script src="./renderer.js"></script>
+    <script src="./versioncheck.js"></script>
+    <script src="./brightness.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
+</body>
+
+</html>

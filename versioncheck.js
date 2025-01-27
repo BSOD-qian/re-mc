@@ -1,4 +1,4 @@
-var current = "2.1.0"
+var current = "2.1.1"
 document.getElementById('dialog_version').innerHTML = current;
 function vercheck() {
     var url = "./version.json?" + Math.random();
@@ -15,7 +15,6 @@ function vercheck() {
                     message: '检测到更新，版本' + version + '，推送于' + date,
                     action: "刷新",
                     onActionClick: () => location.reload()
-
                 });
             };
         }

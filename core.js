@@ -479,14 +479,14 @@ function myear() {
     trainnoyear[92102] = "线路：地铁1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Mp车"
     trainnoyear[93233] = "线路：地铁1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>M车"
     trainnoyear[93311] = "线路：地铁1号线<br/>车号：01002<br/>车型：01A01 老老八（已退役）<br/>特殊性：含特殊扩编车厢、曾为备件车，最后一列扩编<br/>Tc车"
-    trainnoyear[92131] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Tc车"
-    trainnoyear[92142] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
-    trainnoyear[92153] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
-    trainnoyear[94022] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
-    trainnoyear[94033] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
-    trainnoyear[92162] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Mp车"
-    trainnoyear[92173] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>M车"
-    trainnoyear[92181] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>Tc车"
+    trainnoyear[92131] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>Tc车"
+    trainnoyear[92142] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>Mp车"
+    trainnoyear[92153] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>M车"
+    trainnoyear[94022] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>Mp车"
+    trainnoyear[94033] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>M车"
+    trainnoyear[92162] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>Mp车"
+    trainnoyear[92173] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>M车"
+    trainnoyear[92181] = "线路：地铁1号线<br/>车号：01003<br/>车型：01A01 老老八（已退役）<br/>特殊性：进行信改实验<br/>Tc车"
     trainnoyear[92191] = "线路：地铁1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Tc车"
     trainnoyear[92202] = "线路：地铁1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>Mp车"
     trainnoyear[92213] = "线路：地铁1号线<br/>车号：01004<br/>车型：01A01 老老八（已退役）<br/>M车"
@@ -1050,7 +1050,7 @@ function output() {
                                                                                                                                                                                         if (final <= 5013 && final >= 5001 || final <= 5018 && final >= 5015) {
                                                                                                                                                                                             type = "05C01 番茄炒蛋"
                                                                                                                                                                                         } else {
-                                                                                                                                                                                            if (final <= 13086 && final >= 13063) {
+                                                                                                                                                                                            if (final <= 13092 && final >= 13063) {
                                                                                                                                                                                                 type = "13A03"
                                                                                                                                                                                             } else {
                                                                                                                                                                                                 carnoerror = 1;
@@ -1116,7 +1116,7 @@ function output() {
                     if (final == 1056 || final == 3038 || final == 8072 || final == 9053 || final == 9091 || final == 10043 || final == 11069 || final == 11077 || final == 13027 || final == 16048 || final == 17033) {
                         sp = "<br/>特殊性：首列上线"
                     } else {
-                        if (final == 1057 || final == 2086 || final == 5019 || final == 6001 || final == 8047 || final == 8067 || final == 9090 || final == 10004 || final == 10045 || final == 11002 || final == 11067 || final == 11080 || final == 12002 || final == 13026 || final == 14002 || final == 15003 || final == 16003 || final == 16047 || final == 17001 || final == 18003 || final == 17030) {
+                        if (final == 1057 || final == 2086 || final == 5019 || final == 6001 || final == 8047 || final == 8067 || final == 9090 || final == 10004 || final == 10045 || final == 11002 || final == 11067 || final == 11080 || final == 12002 || final == 13026 || final == 14002 || final == 15003 || final == 16003 || final == 16047 || final == 17001 || final == 18003 || final == 17030 || final == 13063) {
                             sp = "<br/>特殊性：首列交付"
                         } else {
                             if (final == 1065 || final == 1067 || final == 2071 || final == 5051 || final == 8090 || final == 9105 || final == 10066 || final == 14001 || final == 16059 || final == 17038) {
@@ -1299,7 +1299,11 @@ function output() {
                                                                                                                                                                                                                                                                         if (final == 11013) {
                                                                                                                                                                                                                                                                             sp = "<br/>特殊性：225涂鸦事件车"
                                                                                                                                                                                                                                                                         } else {
-                                                                                                                                                                                                                                                                            sp = ""
+                                                                                                                                                                                                                                                                            if (final == 11073) {
+                                                                                                                                                                                                                                                                                sp = "<br/>特殊性：“1222”事故车"
+                                                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                                                sp = ""
+                                                                                                                                                                                                                                                                            }
                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                 }
@@ -1416,7 +1420,11 @@ function output_3() {
                     if (final == 3012) {
                         sp = "<br/>特殊性：首列完成翻新的03A01型列车"
                     } else {
-                        sp = ""
+                        if (final == 3027) {
+                            sp = "<br/>特殊性：显示屏与其他03A01不同"
+                        } else {
+                            sp = ""
+                        }
                     }
                 }
             }
@@ -1485,10 +1493,10 @@ function output_t01() {
 }
 function output_jc() {
     if (final == "JC4001" || final == "JC4002" || final == "JC4003" || final == "JC4004" || final == "JC4005" || final == "JC4006" || final == "JC4007" || final == "JC4008" || final == "JC4009" || final == "JC4010" || final == "JC4011" || final == "JC4012" || final == "JC4013" || final == "JC4014") {
-        type = "CCD2031(4节)"
+        type = "CCD2031(4节) 小蓝鹦鹉"
     } else {
         if (final == "JC8001" || final == "JC8002" || final == "JC8003") {
-            type = "CCD2031(8节)"
+            type = "CCD2031(8节) 大蓝鹦鹉"
         } else {
             carnoerror = 1;
         }
@@ -1499,7 +1507,7 @@ function output_jc() {
         sp = ""
     }
     if (carnoerror == 0) {
-        document.getElementById('output').innerHTML = "线路：市域铁路机场联络线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp;
+        document.getElementById('output').innerHTML = "线路：市域机场线<br/>车号：" + final.toString().padStart(5, "0") + "<br/>车型：" + type + sp;
     } else {
         document.getElementById('output').innerHTML = "车体号有误";
         carnoerror = 0;
