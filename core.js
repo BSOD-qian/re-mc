@@ -1400,13 +1400,17 @@ function output() {
     }
 }
 function output_3() {
-    if (final <= 3011 && final >= 3001 || final <= 3028 && final >= 3013) {
+    if (final <= 3006 && final >= 3001 || final <= 3011 && final >= 3008 || final <= 3028 && final >= 3013) {
         type = "03A01 黄鱼"
     } else {
         if (final == 3012) {
-            type = "03A01 黄鱼（信改）"
+            type = "03A01 黄鱼（信改样车）"
         } else {
-            carnoerror = 1;
+            if (final == 3007) {
+                type = "03A01 黄鱼（信改）"
+            } else {
+                carnoerror = 1;
+            }
         }
     }
     if (final == 3001) {
@@ -1422,12 +1426,16 @@ function output_3() {
                     sp = "<br/>特殊性：曾为备件车"
                 } else {
                     if (final == 3012) {
-                        sp = "<br/>特殊性：首列完成翻新的03A01型列车"
+                        sp = "<br/>特殊性：作为样车完成翻新的03A01型列车，使用阿尔斯通Optonix牵引（其余翻新03A01使用时代TN28牵引）"
                     } else {
                         if (final == 3027) {
                             sp = "<br/>特殊性：显示屏与其他03A01不同"
                         } else {
-                            sp = ""
+                            if (final == 3007) {
+                                sp = "<br/>特殊性：首列完成量产翻新的03A01型列车"
+                            } else {
+                                sp = ""
+                            }
                         }
                     }
                 }
