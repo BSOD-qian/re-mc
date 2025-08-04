@@ -1,4 +1,4 @@
-var current = "2.3.1"
+var current = "2.4"
 document.getElementById('dialog_version').innerHTML = current;
 function vercheck() {
     var url = "./version.json?" + Math.random();
