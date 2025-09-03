@@ -1,5 +1,7 @@
 var current = "2.4"
+var codename = "Dr.Ratio"
 document.getElementById('dialog_version').innerHTML = current;
+document.getElementById('dialog_codename').innerHTML = codename;
 function vercheck() {
     var url = "./version.json?" + Math.random();
     var xhr, data, version, date;
