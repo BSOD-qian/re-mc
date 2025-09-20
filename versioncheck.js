@@ -1,4 +1,4 @@
-var current = "2.4"
+var current = "2.4.1"
 var codename = "Dr.Ratio"
 document.getElementById('dialog_version').innerHTML = current;
 document.getElementById('dialog_codename').innerHTML = codename;
