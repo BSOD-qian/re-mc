@@ -1,133 +1,117 @@
-<!doctype html>
-<html lang="zh-CN" class="mdui-theme-auto">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
-    <meta name="renderer" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-    <link rel="manifest" href="./manifest.json">
-
-    <link rel="stylesheet" href="./mdui/mdui.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="module" src="./mdui/mdui.global.js"></script>
-    <script type="module" src="./style.js"></script>
-    <script src="./core.js"></script>
-
-    <title>Re:地铁计算器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--导入MDUI相关文件-->
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+    <!-- Filled -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Outlined -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <!-- Rounded -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <!-- Sharp -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <!-- Two Tone -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
+    <!--导入remc文件-->
+    <script src="./drawer.js" defer></script>
+    <script src="./collapse.js" defer></script>
 </head>
 
 <body>
-    <style>
-        body {
-            opacity: 0;
-        }
-
-        body.ready {
-            opacity: 1;
-            transition: 0.4s opacity;
-        }
-    </style>
-
-    <script>
-        var jumptolegacy = setTimeout(function () {
-            location.href = './legacy/index.html';
-        }, 60000)
-    </script>
-    <script type="module">
-        await Promise.allSettled([
-            customElements.whenDefined('mdui-button'),
-            customElements.whenDefined('mdui-card'),
-            customElements.whenDefined('mdui-checkbox')
-        ]);
-
-        // 现在 button, card, checkbox 组件已经注册完成，添加 ready class，使页面淡入显示
-        document.body.classList.add('ready');
-        clearTimeout(jumptolegacy)
-        console.log("okay")
-        theme_after_load();
-        read_num_after_load();
-    </script>
-    <mdui-top-app-bar variant="large" scroll-behavior="shrink elevate">
-        <mdui-button-icon icon="menu" id="drawer_opener"></mdui-button-icon>
-        <mdui-top-app-bar-title>Re:地铁计算器</mdui-top-app-bar-title>
+    <mdui-top-app-bar variant="large">
+        <mdui-button-icon icon="menu"></mdui-button-icon>
+        <mdui-top-app-bar-title>Re:地铁计算器
+        </mdui-top-app-bar-title>
         <div style="flex-grow: 1"></div>
-        <mdui-tooltip content="色彩模式切换" id="brightness_tooltip">
-            <mdui-button-icon icon="brightness_auto" onclick="change();" id="brightness_control"></mdui-button-icon>
-        </mdui-tooltip>
-        <mdui-tooltip content="刷新">
-            <mdui-button-icon icon="refresh" onclick="location.reload();"></mdui-button-icon>
-        </mdui-tooltip>
+        <mdui-button-icon icon="brightness_auto" disabled></mdui-button-icon>
+        <mdui-button-icon icon="color_lens" disabled></mdui-button-icon>
         <mdui-dropdown>
-            <mdui-button-icon slot="trigger" icon="more_vert" id="moremenu"></mdui-button-icon>
+            <mdui-button-icon icon="more_vert" slot="trigger"></mdui-button-icon>
             <mdui-menu>
-                <mdui-menu-item id="version">关于</mdui-menu-item>
-                <mdui-menu-item onclick="intro();">观看教程</mdui-menu-item>
-                <!--<mdui-menu-item href="https://kook.top/GL1gkO">访问KOOK频道</mdui-menu-item>-->
-                <mdui-menu-item href="https://tieba.baidu.com/p/8906181721">访问贴吧原帖</mdui-menu-item>
-                <mdui-menu-item href="https://github.com/BSOD-qian/re-mc">访问Github仓库</mdui-menu-item>
+                <mdui-menu-item class="versiondrawercontrol">关于</mdui-menu-item>
             </mdui-menu>
         </mdui-dropdown>
+        <!--PC操作按钮--><!--
+        <mdui-button-icon icon="minimize" disabled></mdui-button-icon>
+        <mdui-button-icon icon="maximize" disabled></mdui-button-icon>
+        <mdui-button-icon icon="close" disabled></mdui-button-icon>-->
     </mdui-top-app-bar>
-    <div class="mdui-prose">
-        <mdui-text-field label="输入车体号" maxlength="7" counter id="input" onkeydown="if(event.keyCode==13){wuc()}"
-            helper="车体号应为5位、6位或7位（例：92113、114511、T010011）" helper-on-focus required clearable></mdui-text-field>
-        <mdui-checkbox id="05C01">是05C01（番茄炒蛋）型列车，且车体号为5位，或车体号为6位并且第3位为2、3、4<a
-                href="https://www.bilibili.com/read/cv31820448/" target="_blank">什么意思？</a></mdui-checkbox>
-        <mdui-button onclick="wuc();" full-width end-icon="arrow_forward" id="calcbutton">计算</mdui-button>
 
-        <div id="output">在您开始计算后，计算结果将显示于此</div>
-    </div>
-    <mdui-navigation-drawer close-on-overlay-click id="drawer" modal close-on-esc close-on-overlay-click>
-        <mdui-list>
-            <mdui-list-item href="./index.html" rounded active>主页</mdui-list-item>
-            <mdui-list-item href="./changelog.html" rounded>更新日志</mdui-list-item>
-        </mdui-list>
+    <!--版本信息-->
+    <mdui-navigation-drawer close-on-overlay-click placement="right" modal class="versiondrawer">
+        <div style="margin: var(--mdui-shape-corner-large);" class="mdui-prose">
+            <mdui-card clickable style="width: 100%;aspect-ratio: 3;" id="dev-portal">
+                <img src="https://patchwiki.biligame.com/images/sr/e/ed/kj8n0fo0d0asv28onvhkcinr2cg7bbo.jpg"
+                    style="aspect-ratio: 3; object-fit: cover;" />
+            </mdui-card>
+            <h1>关于</h1>
+            <mdui-list>
+                <mdui-collapse accordion>
+                    <mdui-collapse-item>
+                        <mdui-list-item slot="header">
+                            <mdui-avatar src="./favicon.png" slot="icon"></mdui-avatar>
+                            Re:地铁计算器
+                            <span slot="description" style="display: block;">2.99.20261101 (Codename Pearl)</span>
+                            <mdui-icon name='arrow_drop_down' slot="end-icon" class="collapse-icon"></mdui-icon>
+                        </mdui-list-item>
+                        <mdui-list-item>
+                            Copyright (c) 2026 蓝屏钙BSOD
+                            <span slot="description" style="display: block;">本项目基于 GNU General Public License v3.0
+                                获得许可。</span>
+                            <mdui-button variant="text" slot="description" href="https://www.gnu.org/licenses/gpl.html"
+                                target="_blank">开放源代码许可<mdui-icon name='open_in_new'
+                                    slot="end-icon"></mdui-icon></mdui-button>
+                        </mdui-list-item>
+                        <mdui-list-item>
+                            常用链接
+                            <mdui-button variant="text" slot="description" href="https://github.com/BSOD-qian/re-mc"
+                                target="_blank">GitHub<mdui-icon name='open_in_new'
+                                    slot="end-icon"></mdui-icon></mdui-button>
+                            <mdui-button variant="text" slot="description" href="https://space.bilibili.com/397847418"
+                                target="_blank">开发者B站<mdui-icon name='open_in_new'
+                                    slot="end-icon"></mdui-icon></mdui-button>
+                        </mdui-list-item>
+                    </mdui-collapse-item>
+                    <mdui-collapse-item>
+                        <mdui-list-item slot="header">
+                            <mdui-icon name='help' slot="icon"></mdui-icon>
+                            遇到问题？
+                            <mdui-icon name='arrow_drop_down' slot="end-icon" class="collapse-icon"></mdui-icon>
+                        </mdui-list-item>
+                        <mdui-list-item href="https://github.com/BSOD-qian/re-mc/issues" target="_blank">
+                            问题反馈/功能建议
+                            <mdui-icon name='open_in_new' slot="end-icon"></mdui-icon>
+                        </mdui-list-item>
+                    </mdui-collapse-item>
+                    <mdui-collapse-item>
+                        <mdui-list-item slot="header">
+                            <mdui-icon name='cake' slot="icon"></mdui-icon>
+                            鸣谢
+                            <mdui-icon name='arrow_drop_down' slot="end-icon" class="collapse-icon"></mdui-icon>
+                        </mdui-list-item>
+                        <mdui-list-item href="https://github.com/BSOD-qian" target="_blank">
+                            <mdui-avatar src="https://avatars.githubusercontent.com/u/63780982"
+                                slot="icon"></mdui-avatar>
+                            BSOD-qian
+                            <span slot="description" style="display: block;">贡献者</span>
+                            <mdui-icon name='open_in_new' slot="end-icon"></mdui-icon>
+                        </mdui-list-item>
+                        <mdui-list-item href="https://github.com/zdhxiong/mdui" target="_blank">
+                            <mdui-avatar icon='code' slot="icon"></mdui-avatar>
+                            zdhxiong/mdui
+                            <span slot="description" style="display: block;">开源库</span>
+                            <mdui-icon name='open_in_new' slot="end-icon"></mdui-icon>
+                        </mdui-list-item>
+                    </mdui-collapse-item>
+                </mdui-collapse>
+            </mdui-list>
+        </div>
     </mdui-navigation-drawer>
-    <script>
-        const navigationDrawer = document.getElementById("drawer");
-        const drawer_openButton = document.getElementById("drawer_opener");
-        //const drawer_closeButton = document.getElementById("drawer_closer");
-
-        drawer_openButton.addEventListener("click", function () { navigationDrawer.open = true });
-        //drawer_closeButton.addEventListener("click", function () { navigationDrawer.open = false });
-    </script>
-
-    <mdui-dialog id="version_dialog" close-on-overlay-click open="false">
-        <span slot="headline">关于“Re:地铁计算器”</span>
-        <span slot="description">
-            <img src="./favicon.png" style="height: 6em;" />
-            <h1>版本信息</h1>
-            Ver <span id="dialog_version"></span>(Codename "<span id="dialog_codename"></span>")<br />使用<a href="./apache2.0.txt"> Apache License Version
-                2.0</a>授权<br />2025 @蓝屏钙BSOD<span id="expire"></span>
-            <h1>鸣谢</h1>
-            使用<a href="https://www.mdui.org" target="_blank">MDUI 2.1.2</a>框架<br />使用<a
-                href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js</a><br />使用<a
-                href="https://mp.weixin.qq.com/s/PsveNPVjda8iszEL3wiASQ">@一路逆风的编组表</a><br />使用<a
-                href="https://docsify.js.org/#/zh-cn/pwa" target="_blank">docsify</a>提供的service worker文件<br />
-            使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest"
-                target="_blank">MDN</a>提供的manifest文件并加以修改<br /><a href="./friendly_link.html">友情链接</a>
-        </span>
-        <mdui-button slot="action" id="version_dialog_ok_button">好</mdui-button>
-    </mdui-dialog>
-    <script>
-        const version_dialog = document.getElementById("version_dialog");
-        const version_dialog_openButton = document.getElementById("version")
-        const version_dialog_closeButton = document.getElementById("version_dialog_ok_button");
-
-        version_dialog_openButton.addEventListener("click", function () { version_dialog.open = true });
-        version_dialog_closeButton.addEventListener("click", function () { version_dialog.open = false });
-    </script>
-    <script>
-        if (typeof navigator.serviceWorker !== 'undefined') {
-            navigator.serviceWorker.register('sw.js')
-        }
-    </script>
-    <script src="./versioncheck.js"></script>
-    <script src="./brightness.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </body>
 
 </html>
