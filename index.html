@@ -17,12 +17,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <!-- Two Tone -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
+    <link rel="preload" href="https://cdn.w3cbus.com/library/roboto/Roboto-Regular.woff2" as="font" type="font/woff2"
+        crossorigin="" />
     <!--导入remc文件-->
     <script src="./drawer.js" defer></script>
     <script src="./collapse.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./core.js" defer></script>
 </head>
 
 <body>
+    <!--顶部应用栏-->
     <mdui-top-app-bar variant="large">
         <mdui-button-icon icon="menu"></mdui-button-icon>
         <mdui-top-app-bar-title>Re:地铁计算器
@@ -42,6 +47,12 @@
         <mdui-button-icon icon="close" disabled></mdui-button-icon>-->
     </mdui-top-app-bar>
 
+    <!--输入框-->
+    <mdui-text-field label="车体号" clearable id="cart_no_input">
+        <mdui-icon name="train" slot="icon"></mdui-icon>
+        <mdui-button-icon icon="arrow_forward" slot="end-icon" variant="tonal" id="cart_no_input_enter" style="transition: all 0.4s;"></mdui-button-icon>
+    </mdui-text-field>
+
     <!--版本信息-->
     <mdui-navigation-drawer close-on-overlay-click placement="right" modal class="versiondrawer">
         <div style="margin: var(--mdui-shape-corner-large);" class="mdui-prose">
@@ -49,14 +60,14 @@
                 <img src="https://patchwiki.biligame.com/images/sr/e/ed/kj8n0fo0d0asv28onvhkcinr2cg7bbo.jpg"
                     style="aspect-ratio: 3; object-fit: cover;" />
             </mdui-card>
-            <h1>关于</h1>
+            <div class="headline">关于</div>
             <mdui-list>
                 <mdui-collapse accordion>
                     <mdui-collapse-item>
                         <mdui-list-item slot="header">
                             <mdui-avatar src="./favicon.png" slot="icon"></mdui-avatar>
                             Re:地铁计算器<mdui-badge>Beta</mdui-badge>
-                            <span slot="description" style="display: block;">2.99.20261101.1 (Codename Pearl)</span>
+                            <span slot="description" style="display: block;">2.99.20261102 (Codename Pearl)</span>
                             <mdui-icon name='arrow_drop_down' slot="end-icon" class="collapse-icon"></mdui-icon>
                         </mdui-list-item>
                         <mdui-list-item>
