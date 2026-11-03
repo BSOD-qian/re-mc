@@ -1,0 +1,23 @@
+{
+  "name": "re-mc",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/BSOD-qian/re-mc#readme",
+  "bugs": {
+    "url": "https://github.com/BSOD-qian/re-mc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BSOD-qian/re-mc.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^45.2.1"
+  }
+}

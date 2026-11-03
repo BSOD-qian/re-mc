@@ -24,6 +24,7 @@
     <script src="./collapse.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
     <script src="./core.js" defer></script>
+    <script src="./electron_window_control.js" defer></script>
 </head>
 
 <body>
@@ -41,10 +42,10 @@
                 <mdui-menu-item class="versiondrawercontrol">关于</mdui-menu-item>
             </mdui-menu>
         </mdui-dropdown>
-        <!--PC操作按钮--><!--
-        <mdui-button-icon icon="minimize"></mdui-button-icon>
-        <mdui-button-icon icon="maximize"></mdui-button-icon>
-        <mdui-button-icon icon="close"></mdui-button-icon>-->
+        <!--PC操作按钮-->
+        <mdui-button-icon icon="minimize" id="minimize"></mdui-button-icon>
+        <mdui-button-icon icon="maximize" id="maximize"></mdui-button-icon>
+        <mdui-button-icon icon="close" id="close"></mdui-button-icon>
     </mdui-top-app-bar>
 
     <!--输入框-->
@@ -71,7 +72,7 @@
                         <mdui-list-item slot="header">
                             <mdui-avatar src="./favicon.png" slot="icon"></mdui-avatar>
                             Re:地铁计算器<mdui-badge>Beta</mdui-badge>
-                            <span slot="description" style="display: block;">2.99.20261103.1 (Codename Pearl)</span>
+                            <span slot="description" style="display: block;">2.99.20261103.1.1 (Codename Pearl)</span>
                             <mdui-icon name='arrow_drop_down' slot="end-icon" class="collapse-icon"></mdui-icon>
                         </mdui-list-item>
                         <mdui-list-item>

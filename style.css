@@ -24,3 +24,15 @@ body {
   background-color: rgb(var(--mdui-color-error));
   color: rgb(var(--mdui-color-on-error));
 }
+
+mdui-top-app-bar {
+  -webkit-app-region: drag;
+}
+
+mdui-top-app-bar mdui-button-icon {
+  -webkit-app-region: no-drag;
+}
+
+mdui-menu {
+  -webkit-app-region: no-drag;
+}
