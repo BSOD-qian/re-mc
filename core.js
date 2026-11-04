@@ -56,8 +56,18 @@ function calc_init() {
                                                 line_text = "<span style='color: black; background-color: #F7AF00;'>21号线（暂未开通）</span>"
                                                 calc_21()
                                             } else {
-                                                error_check = 1
-                                                display()
+                                                if (line_no == "14") {
+                                                    line_text = "<span style='color: white; background-color: #626020;'>14号线</span>"
+                                                    calc_14()
+                                                } else {
+                                                    if (line_no == "22") {
+                                                        line_text = "<span style='color: white; background-color: #5F376F;'>22号线（暂未开通）</span>"
+                                                        calc_22()
+                                                    } else {
+                                                        error_check = 1
+                                                        display()
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -126,6 +136,16 @@ function calc_21() {
     check_21()
 }
 
+function calc_14() {
+    train_no = line_no + Math.ceil(cart_no / 8).toString().padStart(3, "0")
+    check_14()
+}
+
+function calc_22() {
+    train_no = line_no + Math.ceil(cart_no / 8).toString().padStart(3, "0")
+    check_22()
+}
+
 //检测主体
 function check_4() {
     tail_no_template = [1, 1, 2, 3, 3, 2]
@@ -148,7 +168,7 @@ function check_4() {
     if (train_no >= 4001 && train_no <= 4028) {
         train_type = "04A01"
     } else {
-        if (train_no >= 4029 && train_no <= 4030 || train_no == 4032 || train_no == 4036 || train_no == 4051 || train_no == 4054) {
+        if (train_no >= 4029 && train_no <= 4055) {
             train_type = "04A02"
         } else {
             error_check = 1
@@ -472,7 +492,59 @@ function check_21() {
     if (train_no >= 21001 && train_no <= 21043) {
         train_type = "21A01"
     } else {
-            error_check = 1
+        error_check = 1
+    }
+    display();
+}
+
+function check_14() {
+    tail_no_template = [1, 1, 2, 3, 2, 3, 3, 2]
+    tail_no = document.getElementById("cart_no_input").value.substr(5, 1)
+    if (tail_no != tail_no_template[cart_no % 8]) {
+        error_check = 1
+    } else {
+        if (tail_no == 1) {
+            cart_type = "Tc车"
+        } else {
+            if (tail_no == 2) {
+                cart_type = "Mp车"
+            } else {
+                if (tail_no == 3 || tail_no == 4) {
+                    cart_type = "M车"
+                }
+            }
+        }
+    }
+    if (train_no >= 14001 && train_no <= 14049) {
+        train_type = "14A01"
+    } else {
+        error_check = 1
+    }
+    display();
+}
+
+function check_22() {
+    tail_no_template = [1, 1, 3]
+    tail_no = document.getElementById("cart_no_input").value.substr(5, 1)
+    if (tail_no != tail_no_template[cart_no % 3]) {
+        error_check = 1
+    } else {
+        if (tail_no == 1) {
+            cart_type = "Tc车"
+        } else {
+            if (tail_no == 2) {
+                cart_type = "Mp车"
+            } else {
+                if (tail_no == 3 || tail_no == 4) {
+                    cart_type = "M车"
+                }
+            }
+        }
+    }
+    if (train_no >= 22001 && train_no <= 22040) {
+        train_type = "22A01"
+    } else {
+        error_check = 1
     }
     display();
 }
