@@ -1,9 +1,20 @@
+//加载完成显示焦点
+document.getElementById("cart_no_input").focus()
+
 //按钮颜色变换
 document.getElementById("cart_no_input").addEventListener("input", function () {
     if (document.getElementById("cart_no_input").value != "") {
         document.getElementById("cart_no_input_enter").variant = "filled";
     } else {
         document.getElementById("cart_no_input_enter").variant = "tonal";
+    }
+})
+
+//按下回车执行
+document.getElementById("cart_no_input").addEventListener("keydown", function (event) {
+    if (event.key == "Enter" || event.keyCode == 13) {
+        event.preventDefault();
+        document.getElementById("cart_no_input_enter").click();
     }
 })
 
@@ -68,8 +79,13 @@ function calc_init() {
                                                             line_text = "<span style='color: white; background-color: #E30067;'>6号线</span>"
                                                             calc_6()
                                                         } else {
-                                                            error_check = 1
-                                                            display()
+                                                            if (line_no == "08") {
+                                                                line_text = "<span style='color: white; background-color: #0094D8;'>8号线</span>"
+                                                                calc_8()
+                                                            } else {
+                                                                error_check = 1
+                                                                display()
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -173,6 +189,20 @@ function calc_6() {
     }
     train_no = train_no.toString().padStart(5, "0")
     check_6()
+}
+
+function calc_8() {
+    if (cart_no >= 1 && cart_no <= 168) {
+        train_no = line_no + Math.ceil(cart_no / 6).toString().padStart(3, "0")
+        check_08C01()
+    } else {
+        if (cart_no >= 169 && cart_no <= 602) {
+            train_no = line_no + (Math.ceil(cart_no / 7) + 4).toString().padStart(3, "0")
+            check_08C02_03_04()
+        } else {
+            error_check = 1
+        }
+    }
 }
 
 //检测主体
@@ -610,6 +640,66 @@ function check_6() {
                 } else {
                     error_check = 1
                 }
+            }
+        }
+    }
+    display();
+}
+
+function check_08C01() {
+    tail_no_template = [1, 1, 2, 3, 3, 2]
+    tail_no = document.getElementById("cart_no_input").value.substr(5, 1)
+    if (tail_no != tail_no_template[cart_no % 6]) {
+        error_check = 1
+    } else {
+        if (tail_no == 1) {
+            cart_type = "Tc车"
+        } else {
+            if (tail_no == 2) {
+                cart_type = "Mp车"
+            } else {
+                if (tail_no == 3 || tail_no == 4) {
+                    cart_type = "M车"
+                }
+            }
+        }
+    }
+    if (train_no >= 8001 && train_no <= 8028) {
+        train_type = "08C01"
+    } else {
+        error_check = 1
+    }
+    display();
+}
+
+function check_08C02_03_04() {
+    tail_no_template = [1, 1, 2, 3, 3, 3, 2]
+    tail_no = document.getElementById("cart_no_input").value.substr(5, 1)
+    if (tail_no != tail_no_template[cart_no % 7]) {
+        error_check = 1
+    } else {
+        if (tail_no == 1) {
+            cart_type = "Tc车"
+        } else {
+            if (tail_no == 2) {
+                cart_type = "Mp车"
+            } else {
+                if (tail_no == 3 || tail_no == 4) {
+                    cart_type = "M车"
+                }
+            }
+        }
+    }
+    if (train_no >= 8029 && train_no <= 8046) {
+        train_type = "08C02"
+    } else {
+        if (train_no >= 8047 && train_no <= 8066) {
+            train_type = "08C03"
+        } else {
+            if (train_no >= 8067 && train_no <= 8090) {
+                train_type = "08C04"
+            } else {
+                error_check = 1
             }
         }
     }
